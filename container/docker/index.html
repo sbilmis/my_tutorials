@@ -8,22 +8,28 @@
       
       
       
+        <link rel="canonical" href="https://sbilmis.github.io/my-tutorials/container/docker/">
       
       
+        <link rel="prev" href="../../python/">
       
-      <link rel="icon" href="/my-tutorials/assets/images/favicon.png">
+      
+        <link rel="next" href="../../devonthink/devonthink/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
     
     
       
-        <title>Tutorial</title>
+        <title>Docker - Tutorial</title>
       
     
     
-      <link rel="stylesheet" href="/my-tutorials/assets/stylesheets/main.7e37652d.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
       
         
-        <link rel="stylesheet" href="/my-tutorials/assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -42,7 +48,7 @@
       
     
     
-    <script>__md_scope=new URL("/my-tutorials/",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -65,6 +71,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#docker-basics" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -77,7 +88,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/my-tutorials/." title="Tutorial" class="md-header__button md-logo" aria-label="Tutorial" data-md-component="logo">
+    <a href="../.." title="Tutorial" class="md-header__button md-logo" aria-label="Tutorial" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -97,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              Docker
             
           </span>
         </div>
@@ -135,7 +146,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/my-tutorials/." title="Tutorial" class="md-nav__button md-logo" aria-label="Tutorial" data-md-component="logo">
+    <a href="../.." title="Tutorial" class="md-nav__button md-logo" aria-label="Tutorial" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -153,7 +164,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -175,7 +186,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/my_first_carpentries_lesson/" class="md-nav__link">
+      <a href="../../my_first_carpentries_lesson/" class="md-nav__link">
         
   
   
@@ -197,7 +208,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/python/" class="md-nav__link">
+      <a href="../../python/" class="md-nav__link">
         
   
   
@@ -216,8 +227,10 @@
       
   
   
+    
   
   
+  
     
     
     
@@ -228,11 +241,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
@@ -248,7 +261,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             Container
@@ -259,10 +272,19 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="/my-tutorials/container/docker/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -273,6 +295,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -335,7 +358,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/devonthink/devonthink/" class="md-nav__link">
+      <a href="../../devonthink/devonthink/" class="md-nav__link">
         
   
   
@@ -408,7 +431,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/emacs/emacs-python-guide/" class="md-nav__link">
+      <a href="../../emacs/emacs-python-guide/" class="md-nav__link">
         
   
   
@@ -431,7 +454,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/emacs/emacs/" class="md-nav__link">
+      <a href="../../emacs/emacs/" class="md-nav__link">
         
   
   
@@ -454,7 +477,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/emacs/emacs_live_markdown_preview/" class="md-nav__link">
+      <a href="../../emacs/emacs_live_markdown_preview/" class="md-nav__link">
         
   
   
@@ -477,7 +500,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/emacs/magit_shortcut_tutorial/" class="md-nav__link">
+      <a href="../../emacs/magit_shortcut_tutorial/" class="md-nav__link">
         
   
   
@@ -500,7 +523,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/emacs/org_mode/" class="md-nav__link">
+      <a href="../../emacs/org_mode/" class="md-nav__link">
         
   
   
@@ -523,7 +546,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/emacs/task_logging_with_emacs/" class="md-nav__link">
+      <a href="../../emacs/task_logging_with_emacs/" class="md-nav__link">
         
   
   
@@ -596,7 +619,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/firefox/firefox/" class="md-nav__link">
+      <a href="../../firefox/firefox/" class="md-nav__link">
         
   
   
@@ -669,7 +692,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/general/apps_to_use/" class="md-nav__link">
+      <a href="../../general/apps_to_use/" class="md-nav__link">
         
   
   
@@ -692,7 +715,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/general/fonts/" class="md-nav__link">
+      <a href="../../general/fonts/" class="md-nav__link">
         
   
   
@@ -715,7 +738,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/general/general/" class="md-nav__link">
+      <a href="../../general/general/" class="md-nav__link">
         
   
   
@@ -738,7 +761,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/general/unison/" class="md-nav__link">
+      <a href="../../general/unison/" class="md-nav__link">
         
   
   
@@ -811,7 +834,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/git/git/" class="md-nav__link">
+      <a href="../../git/git/" class="md-nav__link">
         
   
   
@@ -884,7 +907,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/hpc/hpc/" class="md-nav__link">
+      <a href="../../hpc/hpc/" class="md-nav__link">
         
   
   
@@ -907,7 +930,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/hpc/opensees_installation/" class="md-nav__link">
+      <a href="../../hpc/opensees_installation/" class="md-nav__link">
         
   
   
@@ -930,7 +953,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/hpc/python_environments_with_miniconda/" class="md-nav__link">
+      <a href="../../hpc/python_environments_with_miniconda/" class="md-nav__link">
         
   
   
@@ -953,7 +976,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/hpc/python_environments_with_pyenv/" class="md-nav__link">
+      <a href="../../hpc/python_environments_with_pyenv/" class="md-nav__link">
         
   
   
@@ -1026,7 +1049,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/hugo/hugo/" class="md-nav__link">
+      <a href="../../hugo/hugo/" class="md-nav__link">
         
   
   
@@ -1099,7 +1122,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/jupyter/jupyter/" class="md-nav__link">
+      <a href="../../jupyter/jupyter/" class="md-nav__link">
         
   
   
@@ -1172,7 +1195,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/latex/latex/" class="md-nav__link">
+      <a href="../../latex/latex/" class="md-nav__link">
         
   
   
@@ -1245,7 +1268,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/linux/apps-Linux/" class="md-nav__link">
+      <a href="../../linux/apps-Linux/" class="md-nav__link">
         
   
   
@@ -1268,7 +1291,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/linux/cve_vulnerabilities/" class="md-nav__link">
+      <a href="../../linux/cve_vulnerabilities/" class="md-nav__link">
         
   
   
@@ -1341,7 +1364,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/macos/macos/" class="md-nav__link">
+      <a href="../../macos/macos/" class="md-nav__link">
         
   
   
@@ -1414,7 +1437,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/mathematica/mathematica/" class="md-nav__link">
+      <a href="../../mathematica/mathematica/" class="md-nav__link">
         
   
   
@@ -1487,7 +1510,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/matlab/matlab/" class="md-nav__link">
+      <a href="../../matlab/matlab/" class="md-nav__link">
         
   
   
@@ -1560,7 +1583,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/python/python_env_with_miniconda/" class="md-nav__link">
+      <a href="../../python/python_env_with_miniconda/" class="md-nav__link">
         
   
   
@@ -1583,7 +1606,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/python/python_env_with_pyenv/" class="md-nav__link">
+      <a href="../../python/python_env_with_pyenv/" class="md-nav__link">
         
   
   
@@ -1656,7 +1679,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/rclone/rclone/" class="md-nav__link">
+      <a href="../../rclone/rclone/" class="md-nav__link">
         
   
   
@@ -1729,7 +1752,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/rsync/rsync/" class="md-nav__link">
+      <a href="../../rsync/rsync/" class="md-nav__link">
         
   
   
@@ -1802,7 +1825,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/ssh/ssh/" class="md-nav__link">
+      <a href="../../ssh/ssh/" class="md-nav__link">
         
   
   
@@ -1875,7 +1898,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/tmux/tmux/" class="md-nav__link">
+      <a href="../../tmux/tmux/" class="md-nav__link">
         
   
   
@@ -1948,7 +1971,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/zotero/zotero/" class="md-nav__link">
+      <a href="../../zotero/zotero/" class="md-nav__link">
         
   
   
@@ -1988,6 +2011,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -1999,8 +2024,161 @@
             <div class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+
+
+<p>-Containers vs. Images Images: Immutable templates containing
+application code and dependencies. Containers: Running instances of
+images with a writable layer for runtime changes.</p>
+<ul>
+<li>Where Docker Stores Files</li>
+</ul>
+<p>Images: Stored in <em>var/lib/docker/overlay2</em> (Linux). Containers:
+Metadata and filesystem layers are in <em>var/lib/docker/containers</em>.
+Volumes: Persistent storage is located in <em>var/lib/docker/volumes</em>.</p>
+<h1 id="docker-basics">Docker Basics</h1>
+<ul>
+<li>Attach to a running container:</li>
+</ul>
+<p><code>shell
+  docker attach CONTAINER_ID</code></p>
+<ul>
+<li>
+<p>To detach from the container: `Ctrl-p Ctrl-q`</p>
+</li>
+<li>
+<p><strong><em>*Alternatives</em></strong>*:</p>
+</li>
+<li>
+<p>`podman` and `buildah` are alternative tools to Docker.</p>
+</li>
+<li>
+<p><a href="https://apptainer.org/">Apptainer</a>: Apptainer (formerly
+    Singularity) is an HPC-focused alternative to Docker, designed for
+    non-root execution, making it ideal for HPC environments.</p>
+</li>
+<li>
+<p><strong><em>*Note</em></strong>*: Image IDs and Container IDs are different entities in
+  Docker.</p>
+</li>
+</ul>
+<h1 id="references">References</h1>
+<ul>
+<li><a href="https://dockerlabs.collabnix.com/docker/cheatsheet/">Docker Cheatsheet -
+  Collabnix</a></li>
+<li><a href="https://docs.docker.com/get-started/docker_cheatsheet.pdf">Official Docker Cheatsheet
+  (PDF)</a></li>
+<li><a href="https://docs.docker.com/">Docker Documentation</a></li>
+</ul>
+<h1 id="running-a-basic-os-container">Running a Basic OS Container</h1>
+<ul>
+<li>Containers based on OS images exit immediately if they aren't running
+  any active processes.</li>
+</ul>
+<p><code>shell
+  docker run -it centos</code></p>
+<ul>
+<li>Install a package and save changes:</li>
+</ul>
+<p><code>shell
+  yum install man
+  docker commit CONTAINER_ID mycentos</code></p>
+<h1 id="installing-pulling-docker-images">Installing (Pulling) Docker Images</h1>
+<ul>
+<li>
+<p>Use <a href="https://hub.docker.com/">Docker Hub</a> to browse available images.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<p><code>shell
+  docker pull nginx</code></p>
+<h1 id="listing-images">Listing Images</h1>
+<pre><code class="language-shell">docker image ls
+# or
+docker images
+</code></pre>
+<h1 id="running-a-container-with-nginx-as-an-example">Running a Container with NGINX (as an example)</h1>
+<pre><code class="language-shell"># Basic syntax
+docker run IMAGE
+
+# Run NGINX in detached mode
+docker run -d nginx
+
+# Name the container
+docker run --name mynginx -d nginx
+
+# Map port 80 in the container to localhost:8080
+docker run -d -p 8080:80 nginx
+
+# Open a browser and go to localhost:8080 to see the &quot;Welcome to nginx&quot; page.
+</code></pre>
+<h1 id="listing-containers">Listing Containers</h1>
+<pre><code class="language-shell"># List running containers
+docker ps
+
+# List all containers (including stopped)
+docker ps --all
+
+# List only container IDs
+docker ps -aq
+</code></pre>
+<h1 id="running-commands-interactively-in-a-running-container">Running Commands Interactively in a Running Container</h1>
+<pre><code class="language-shell">docker exec -it CONTAINER_ID bash
+# Use -it for interactive mode. This will open a bash session in the container.
+</code></pre>
+<h1 id="stopping-and-restarting-containers">Stopping and Restarting Containers</h1>
+<pre><code class="language-shell"># Stop a running container
+docker stop CONTAINER_ID
+
+# Start a stopped container by its ID
+docker start CONTAINER_ID
+</code></pre>
+<h1 id="removing-containers">Removing Containers</h1>
+<pre><code class="language-shell"># Remove a container
+docker rm CONTAINER_ID
+
+# Force remove a running container
+docker rm -f CONTAINER_ID
+
+# Remove all containers
+docker rm -f $(docker ps -aq)
+</code></pre>
+<h1 id="mapping-a-local-directory-into-a-container">Mapping a Local Directory into a Container</h1>
+<pre><code class="language-shell">docker run -v HOST_DIR:CONTAINER_DIR IMAGE
+
+# Example: Map the current directory to /website in the container
+docker run -d -p 8080:80 --name website2 -v $(pwd):/website nginx
+</code></pre>
+<h1 id="removing-images">Removing Images</h1>
+<pre><code class="language-shell">docker image rm IMAGE_ID
+</code></pre>
+<h1 id="to-be-added">To Be Added</h1>
+<ul>
+<li>[ ] How to create a Docker image</li>
+<li>[ ] Running GUI applications in Docker</li>
+<li>[ ] Checking IP address in Docker container</li>
+<li>[ ] Configuring IP and hostname in containers</li>
+<li>[ ] Communication between Docker containers (<a href="https://www.tutorialworks.com/container-networking/">Tutorial on container
+  networking</a>)</li>
+<li>[ ] Resuming a stopped container with a shared volume: How to add
+  volumes post-creation</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -2036,10 +2214,10 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "/my-tutorials/", "features": ["navigation.sections", "navigation.numbering"], "search": "/my-tutorials/assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "navigation.numbering"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="/my-tutorials/assets/javascripts/bundle.50899def.min.js"></script>
+      <script src="../../assets/javascripts/bundle.50899def.min.js"></script>
       
     
   </body>

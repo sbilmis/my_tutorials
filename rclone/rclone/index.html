@@ -8,22 +8,28 @@
       
       
       
+        <link rel="canonical" href="https://sbilmis.github.io/my-tutorials/rclone/rclone/">
       
       
+        <link rel="prev" href="../../python/python_env_with_pyenv/">
       
-      <link rel="icon" href="/my-tutorials/assets/images/favicon.png">
+      
+        <link rel="next" href="../../rsync/rsync/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
     
     
       
-        <title>Tutorial</title>
+        <title>rclone - Tutorial</title>
       
     
     
-      <link rel="stylesheet" href="/my-tutorials/assets/stylesheets/main.7e37652d.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
       
         
-        <link rel="stylesheet" href="/my-tutorials/assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -42,7 +48,7 @@
       
     
     
-    <script>__md_scope=new URL("/my-tutorials/",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -65,6 +71,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#rclone" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -77,7 +88,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/my-tutorials/." title="Tutorial" class="md-header__button md-logo" aria-label="Tutorial" data-md-component="logo">
+    <a href="../.." title="Tutorial" class="md-header__button md-logo" aria-label="Tutorial" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -97,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              rclone
             
           </span>
         </div>
@@ -135,7 +146,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/my-tutorials/." title="Tutorial" class="md-nav__button md-logo" aria-label="Tutorial" data-md-component="logo">
+    <a href="../.." title="Tutorial" class="md-nav__button md-logo" aria-label="Tutorial" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -153,7 +164,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -175,7 +186,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/my_first_carpentries_lesson/" class="md-nav__link">
+      <a href="../../my_first_carpentries_lesson/" class="md-nav__link">
         
   
   
@@ -197,7 +208,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/python/" class="md-nav__link">
+      <a href="../../python/" class="md-nav__link">
         
   
   
@@ -262,7 +273,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/container/docker/" class="md-nav__link">
+      <a href="../../container/docker/" class="md-nav__link">
         
   
   
@@ -335,7 +346,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/devonthink/devonthink/" class="md-nav__link">
+      <a href="../../devonthink/devonthink/" class="md-nav__link">
         
   
   
@@ -408,7 +419,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/emacs/emacs-python-guide/" class="md-nav__link">
+      <a href="../../emacs/emacs-python-guide/" class="md-nav__link">
         
   
   
@@ -431,7 +442,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/emacs/emacs/" class="md-nav__link">
+      <a href="../../emacs/emacs/" class="md-nav__link">
         
   
   
@@ -454,7 +465,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/emacs/emacs_live_markdown_preview/" class="md-nav__link">
+      <a href="../../emacs/emacs_live_markdown_preview/" class="md-nav__link">
         
   
   
@@ -477,7 +488,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/emacs/magit_shortcut_tutorial/" class="md-nav__link">
+      <a href="../../emacs/magit_shortcut_tutorial/" class="md-nav__link">
         
   
   
@@ -500,7 +511,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/emacs/org_mode/" class="md-nav__link">
+      <a href="../../emacs/org_mode/" class="md-nav__link">
         
   
   
@@ -523,7 +534,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/emacs/task_logging_with_emacs/" class="md-nav__link">
+      <a href="../../emacs/task_logging_with_emacs/" class="md-nav__link">
         
   
   
@@ -596,7 +607,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/firefox/firefox/" class="md-nav__link">
+      <a href="../../firefox/firefox/" class="md-nav__link">
         
   
   
@@ -669,7 +680,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/general/apps_to_use/" class="md-nav__link">
+      <a href="../../general/apps_to_use/" class="md-nav__link">
         
   
   
@@ -692,7 +703,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/general/fonts/" class="md-nav__link">
+      <a href="../../general/fonts/" class="md-nav__link">
         
   
   
@@ -715,7 +726,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/general/general/" class="md-nav__link">
+      <a href="../../general/general/" class="md-nav__link">
         
   
   
@@ -738,7 +749,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/general/unison/" class="md-nav__link">
+      <a href="../../general/unison/" class="md-nav__link">
         
   
   
@@ -811,7 +822,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/git/git/" class="md-nav__link">
+      <a href="../../git/git/" class="md-nav__link">
         
   
   
@@ -884,7 +895,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/hpc/hpc/" class="md-nav__link">
+      <a href="../../hpc/hpc/" class="md-nav__link">
         
   
   
@@ -907,7 +918,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/hpc/opensees_installation/" class="md-nav__link">
+      <a href="../../hpc/opensees_installation/" class="md-nav__link">
         
   
   
@@ -930,7 +941,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/hpc/python_environments_with_miniconda/" class="md-nav__link">
+      <a href="../../hpc/python_environments_with_miniconda/" class="md-nav__link">
         
   
   
@@ -953,7 +964,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/hpc/python_environments_with_pyenv/" class="md-nav__link">
+      <a href="../../hpc/python_environments_with_pyenv/" class="md-nav__link">
         
   
   
@@ -1026,7 +1037,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/hugo/hugo/" class="md-nav__link">
+      <a href="../../hugo/hugo/" class="md-nav__link">
         
   
   
@@ -1099,7 +1110,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/jupyter/jupyter/" class="md-nav__link">
+      <a href="../../jupyter/jupyter/" class="md-nav__link">
         
   
   
@@ -1172,7 +1183,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/latex/latex/" class="md-nav__link">
+      <a href="../../latex/latex/" class="md-nav__link">
         
   
   
@@ -1245,7 +1256,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/linux/apps-Linux/" class="md-nav__link">
+      <a href="../../linux/apps-Linux/" class="md-nav__link">
         
   
   
@@ -1268,7 +1279,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/linux/cve_vulnerabilities/" class="md-nav__link">
+      <a href="../../linux/cve_vulnerabilities/" class="md-nav__link">
         
   
   
@@ -1341,7 +1352,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/macos/macos/" class="md-nav__link">
+      <a href="../../macos/macos/" class="md-nav__link">
         
   
   
@@ -1414,7 +1425,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/mathematica/mathematica/" class="md-nav__link">
+      <a href="../../mathematica/mathematica/" class="md-nav__link">
         
   
   
@@ -1487,7 +1498,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/matlab/matlab/" class="md-nav__link">
+      <a href="../../matlab/matlab/" class="md-nav__link">
         
   
   
@@ -1560,7 +1571,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/python/python_env_with_miniconda/" class="md-nav__link">
+      <a href="../../python/python_env_with_miniconda/" class="md-nav__link">
         
   
   
@@ -1583,7 +1594,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/python/python_env_with_pyenv/" class="md-nav__link">
+      <a href="../../python/python_env_with_pyenv/" class="md-nav__link">
         
   
   
@@ -1610,8 +1621,10 @@
       
   
   
+    
   
   
+  
     
     
     
@@ -1622,11 +1635,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_19" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_19" checked>
         
           
           <label class="md-nav__link" for="__nav_19" id="__nav_19_label" tabindex="">
@@ -1642,7 +1655,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_19_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_19_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_19">
             <span class="md-nav__icon md-icon"></span>
             Rclone
@@ -1653,10 +1666,19 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="/my-tutorials/rclone/rclone/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1667,6 +1689,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -1729,7 +1752,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/rsync/rsync/" class="md-nav__link">
+      <a href="../../rsync/rsync/" class="md-nav__link">
         
   
   
@@ -1802,7 +1825,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/ssh/ssh/" class="md-nav__link">
+      <a href="../../ssh/ssh/" class="md-nav__link">
         
   
   
@@ -1875,7 +1898,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/tmux/tmux/" class="md-nav__link">
+      <a href="../../tmux/tmux/" class="md-nav__link">
         
   
   
@@ -1948,7 +1971,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/my-tutorials/zotero/zotero/" class="md-nav__link">
+      <a href="../../zotero/zotero/" class="md-nav__link">
         
   
   
@@ -1988,6 +2011,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -1999,8 +2024,174 @@
             <div class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+
+
+<h1 id="rclone">rclone</h1>
+<ul>
+<li>
+<p><a href="https://rclone.org/docs/#exit-code">rclone documentation</a>: Refer to
+  this for comprehensive information and tutorials. Especially check the
+  flags for more options.</p>
+</li>
+<li>
+<p><strong><em>*On MacOS</em></strong>*: Do not install via `brew` (mount function does not
+  work for `brew` installed rclone as of [2023-12-12 Tue]).</p>
+</li>
+<li>
+<p><strong><em>*Server Usage</em></strong>*: `rclone` can be a powerful alternative to
+  `rsync` for transferring files, especially when managing cloud
+  storage.</p>
+</li>
+</ul>
+<h1 id="important-flags">Important Flags</h1>
+<ul>
+<li>The following flags are useful for most `rclone` commands. Use them
+  carefully to avoid data loss.</li>
+</ul>
+<p><code>shell
+  -n, --dry-run         # Do a trial run with no permanent changes
+  -i, --interactive     # Enable interactive mode
+  -v, --verbose         # Print detailed output (use multiple times for more verbosity)
+  -P, --progress        # Show the progress of the transfer</code></p>
+<h1 id="configuring-rclone">Configuring rclone</h1>
+<ul>
+<li>To configure cloud storage interactively:</li>
+</ul>
+<p><code>shell
+  rclone config</code></p>
+<ul>
+<li>
+<p>Note: For headless servers, you can complete setup without needing a
+    browser.</p>
+</li>
+<li>
+<p>To list configured remotes:</p>
+</li>
+</ul>
+<p><code>shell
+  rclone listremotes</code></p>
+<h1 id="basic-commands">Basic Commands</h1>
+<ul>
+<li>List directories at the top level of a remote:</li>
+</ul>
+<p><code>shell
+  rclone lsd pcloud:my_folder</code></p>
+<ul>
+<li>List all files in a remote folder:</li>
+</ul>
+<p><code>shell
+  rclone ls pcloud:my_folder</code></p>
+<ul>
+<li>Copy files from local to cloud with progress tracking:</li>
+</ul>
+<p><code>shell
+  rclone copy --verbose --progress ~/local_test pcloud:my_folder</code></p>
+<ul>
+<li>
+<p><strong><em>*Tip</em></strong>*: Add `--update` to skip files on the destination with
+    newer modified times:</p>
+<p><code>shell
+rclone copy --update ~/local_test pcloud:my_folder --verbose --progress</code></p>
+</li>
+</ul>
+<h1 id="sync-vs-copy">Sync vs. Copy</h1>
+<ul>
+<li><strong><em>*Copy</em></strong>*: Transfers files from source to destination without
+  deletion. If files exist on the destination, they won't be removed.</li>
+<li><strong><em>*Sync</em></strong>*: Mirrors the source at the destination, deleting files
+  from the destination if they are no longer on the source.</li>
+<li>
+<p><strong><em>*Caution</em></strong>*: Always test `sync` with `--dry-run` or
+    `--interactive` flags to prevent accidental data loss.</p>
+<p><code>shell
+rclone sync "source:sourcepath" "destination:destinationpath"</code></p>
+</li>
+</ul>
+<h1 id="advanced-usage">Advanced Usage</h1>
+<ul>
+<li>Copy files that changed in the last 24 hours:</li>
+</ul>
+<p><code>shell
+  rclone copy --max-age 24h --no-traverse /path/to/src remote:</code></p>
+<ul>
+<li><strong><em>*Bidirectional Sync (Bisync)</em></strong>*: Synchronize changes in both
+  directions with `rclone bisync`.</li>
+</ul>
+<p><code>shell
+  rclone bisync --resync ~/local_test pcloud:my_folder --verbose --progress</code></p>
+<h1 id="mounting-and-unmounting">Mounting and Unmounting</h1>
+<ul>
+<li>To mount and unmount cloud storage:</li>
+</ul>
+<p>``` shell
+  ## Mount
+  rclone mount remote:path/to/files /path/to/local/mount</p>
+<p>## Unmount (Linux)
+  fusermount -u ~/gdrive</p>
+<p>## Unmount (macOS)
+  umount /path/to/local/mount
+  ```</p>
+<h1 id="managing-configurations">Managing Configurations</h1>
+<ul>
+<li><strong><em>*Sync configurations across computers</em></strong>*: It's often best to
+  reconfigure `rclone` separately on each machine.</li>
+</ul>
+<h1 id="deleting-files-and-directories">Deleting Files and Directories</h1>
+<ul>
+<li>Check files to delete with `--dry-run`, then delete:</li>
+</ul>
+<p>``` shell
+  ## Dry run
+  rclone --dry-run delete remote:path</p>
+<p>## Actual deletion with interactive mode
+  rclone -i delete remote:path
+  ```</p>
+<ul>
+<li>Delete empty directories:</li>
+</ul>
+<p><code>shell
+  rclone -n rmdirs remote:path</code></p>
+<h1 id="creating-directories">Creating Directories</h1>
+<ul>
+<li>Create a new directory in a cloud storage location:</li>
+</ul>
+<p><code>shell
+  rclone mkdir gdrive:cloud_test</code></p>
+<h1 id="use-cases">Use Cases</h1>
+<ul>
+<li>After an initial sync, avoid full re-syncs by copying only recently
+  changed files:</li>
+</ul>
+<p><code>shell
+  rclone copy --max-age 24h --no-traverse -i --progress /Users/sbilmis/local_test pcloud:cloud_test</code></p>
+<h1 id="backup-script-example">Backup Script Example</h1>
+<ul>
+<li>Monthly backup script to copy `my~projects~` from `pcloud` to
+  `gdrive`.</li>
+</ul>
+<p>``` bash
+  #!/bin/bash</p>
+<p># Define source and destination paths
+  SOURCE="pcloud:my_projects"
+  DESTINATION="gdrive:My_Files/Depo/my_projects_$(date +\%Y\%m\%d)"</p>
+<p># Run rclone copy command with progress and transfer settings
+  rclone copy -vv --progress --transfers 30 "$SOURCE" "$DESTINATION"
+  ```</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -2036,10 +2227,10 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "/my-tutorials/", "features": ["navigation.sections", "navigation.numbering"], "search": "/my-tutorials/assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "navigation.numbering"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="/my-tutorials/assets/javascripts/bundle.50899def.min.js"></script>
+      <script src="../../assets/javascripts/bundle.50899def.min.js"></script>
       
     
   </body>

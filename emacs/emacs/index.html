@@ -1,0 +1,2986 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://sbilmis.github.io/my-tutorials/emacs/emacs/">
+      
+      
+        <link rel="prev" href="../emacs-python-guide/">
+      
+      
+        <link rel="next" href="../emacs_live_markdown_preview/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
+    
+    
+      
+        <title>Setting Up Emacs as a Python IDE with Eglot, Pyright, Black, and Ruff - Tutorial</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#setting-up-emacs-as-a-python-ide-with-eglot-pyright-black-and-ruff" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Tutorial" class="md-header__button md-logo" aria-label="Tutorial" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Tutorial
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Setting Up Emacs as a Python IDE with Eglot, Pyright, Black, and Ruff
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Tutorial" class="md-nav__button md-logo" aria-label="Tutorial" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Tutorial
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../my_first_carpentries_lesson/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    My first carpentries lesson
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Python
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Container
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Container
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../container/docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Docker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Devonthink
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Devonthink
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../devonthink/devonthink/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    What is DEVONthink?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Emacs
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Emacs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../emacs-python-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Setting Up Emacs as a Python IDE with Eglot, Pyright, Black, and Ruff
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Setting Up Emacs as a Python IDE with Eglot, Pyright, Black, and Ruff
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../emacs_live_markdown_preview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Installation &amp; Setup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../magit_shortcut_tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../org_mode/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Org Mode Tips and Tricks {#org-mode-tips-and-tricks-1}
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../task_logging_with_emacs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Task logging with emacs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Firefox
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Firefox
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../firefox/firefox/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Firefox Tips and Tricks {#firefox-tips-and-tricks-1}
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    General
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            General
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../general/apps_to_use/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Recommended Apps and Software for macOS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../general/fonts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Recommended Fonts for Development and Writing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../general/general/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    General
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../general/unison/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Unison File Synchronization {#unison-file-synchronization-1}
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Git
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Git
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../git/git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Hpc
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            Hpc
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hpc/hpc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Beginner-Friendly Tutorial: Installing Software Locally on an HPC System
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hpc/opensees_installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Installation Steps
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hpc/python_environments_with_miniconda/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🐍 What is Miniconda?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hpc/python_environments_with_pyenv/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🧠 What is pyenv?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Hugo
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            Hugo
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hugo/hugo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hugo Tips and Resources {#hugo-tips-and-resources-1}
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Jupyter
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            Jupyter
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jupyter/jupyter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Listing Installed Jupyter Kernels
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Latex
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            Latex
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../latex/latex/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Report Template
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Linux
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            Linux
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/apps-Linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Difference Between `source script.sh` and `sh script.sh`
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux/cve_vulnerabilities/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CVE Vulnerabilities [[centos]{.smallcaps}]{.tag tag-name="centos"} {#cve-vulnerabilities}
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_15" >
+        
+          
+          <label class="md-nav__link" for="__nav_15" id="__nav_15_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Macos
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_15">
+            <span class="md-nav__icon md-icon"></span>
+            Macos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../macos/macos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    macOS Tips and Tricks {#macos-tips-and-tricks-1}
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_16" >
+        
+          
+          <label class="md-nav__link" for="__nav_16" id="__nav_16_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Mathematica
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_16_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_16">
+            <span class="md-nav__icon md-icon"></span>
+            Mathematica
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mathematica/mathematica/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    To clear all old definitions:
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_17" >
+        
+          
+          <label class="md-nav__link" for="__nav_17" id="__nav_17_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Matlab
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_17_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_17">
+            <span class="md-nav__icon md-icon"></span>
+            Matlab
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../matlab/matlab/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MATLAB Tips and Resources {#matlab-tips-and-resources-1}
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_18" >
+        
+          
+          <label class="md-nav__link" for="__nav_18" id="__nav_18_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Python
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_18_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_18">
+            <span class="md-nav__icon md-icon"></span>
+            Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/python_env_with_miniconda/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🍏 What is Miniconda?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python/python_env_with_pyenv/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    🧠 What is pyenv?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_19" >
+        
+          
+          <label class="md-nav__link" for="__nav_19" id="__nav_19_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Rclone
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_19_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_19">
+            <span class="md-nav__icon md-icon"></span>
+            Rclone
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rclone/rclone/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    rclone
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_20" >
+        
+          
+          <label class="md-nav__link" for="__nav_20" id="__nav_20_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Rsync
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_20_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_20">
+            <span class="md-nav__icon md-icon"></span>
+            Rsync
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../rsync/rsync/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Rsync
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_21" >
+        
+          
+          <label class="md-nav__link" for="__nav_21" id="__nav_21_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Ssh
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_21_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_21">
+            <span class="md-nav__icon md-icon"></span>
+            Ssh
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ssh/ssh/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to Log in to a Server via SSH Without Needing to Enter a Password
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_22" >
+        
+          
+          <label class="md-nav__link" for="__nav_22" id="__nav_22_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Tmux
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_22_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_22">
+            <span class="md-nav__icon md-icon"></span>
+            Tmux
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tmux/tmux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tmux Addons
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_23" >
+        
+          
+          <label class="md-nav__link" for="__nav_23" id="__nav_23_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Zotero
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_23_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_23">
+            <span class="md-nav__icon md-icon"></span>
+            Zotero
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../zotero/zotero/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    What is Zotero?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="setting-up-emacs-as-a-python-ide-with-eglot-pyright-black-and-ruff">Setting Up Emacs as a Python IDE with Eglot, Pyright, Black, and Ruff</h1>
+<p>The <strong>Language Server Protocol (LSP)</strong> is a standardized way for text
+editors and IDEs to communicate with external language servers that
+provide code intelligence features. Instead of each editor implementing
+its own language support, LSP allows the editor to delegate these
+features to an external server that fully understands the language.</p>
+<p>When an editor like Emacs (with Eglot) connects to a language server, it
+enables features such as:</p>
+<ul>
+<li><strong>Auto-completion</strong> (e.g. <code>M-x completion-at-point</code>): Suggests
+  functions, variables, and method names.</li>
+<li><strong>Go to definition</strong> (<code>M-.</code>): Jumps to where a function or variable is
+  defined.</li>
+<li><strong>Find references</strong> (<code>M-x xref-find-references</code>): Lists all
+  occurrences of a symbol.</li>
+<li><strong>Hover documentation</strong> (<code>M-x eldoc</code>): Shows documentation in the echo
+  area when hovering over a symbol.</li>
+<li><strong>Error checking</strong> (<code>M-x flymake-show-buffer-diagnostics</code>): Displays
+  syntax and type errors in real-time.</li>
+<li><strong>Code actions</strong> (<code>M-x eglot-code-actions</code>): Applies suggestions such
+  as import fixes or refactorings.</li>
+<li><strong>Code formatting</strong> (<code>M-x eglot-format</code>): Automatically reformats
+  code.</li>
+</ul>
+<p><strong><em>*Emacs supports multiple LSP clients</em></strong>*, including:</p>
+<ul>
+<li><code>lsp-mode</code> -- Feature-rich and customizable, but heavier and more
+  complex.</li>
+<li><code>lsp-bridge</code> -- A fast, asynchronous LSP client using Python.</li>
+<li><code>company-jedi</code> -- A lightweight non-LSP completion backend (limited in
+  functionality).</li>
+</ul>
+<p>In this tutorial, we will use <strong><em>*Eglot</em></strong>* because:</p>
+<ul>
+<li>✅ It is <strong>built into Emacs 29</strong>, no additional installation needed.</li>
+<li>✅ It is <strong>lightweight and minimal</strong>, ideal for a smooth and fast
+  workflow.</li>
+<li>✅ It provides <strong>essential LSP features</strong> without unnecessary
+  complexity.</li>
+</ul>
+<p>Each language requires its own LSP server. For Python, there are several
+options:</p>
+<ul>
+<li><strong><em>*Pyright</em></strong>* (Recommended) -- Fast, lightweight, excellent for type
+  checking.</li>
+<li><strong><em>*Pylsp</em></strong>* -- Plugin-based and highly configurable, but slower.</li>
+<li><strong><em>*Jedi Language Server</em></strong>* -- Minimal and lightweight, but lacks
+  advanced type checking.</li>
+<li><strong><em>*Microsoft Python Language Server</em></strong>* -- Deprecated and no longer
+  maintained.</li>
+</ul>
+<p>In this tutorial, we will use:</p>
+<ul>
+<li><strong><em>*Eglot</em></strong>* as our LSP client,</li>
+<li><strong><em>*Pyright</em></strong>* as the Python language server,</li>
+<li><strong><em>*Black</em></strong>* for automatic code formatting,</li>
+<li><strong><em>*Ruff</em></strong>* for linting and style checks.</li>
+</ul>
+<p><strong>Black</strong> is an opinionated Python code formatter that ensures a
+consistent code style. It will run automatically when saving a file.
+<strong>Ruff</strong> is a <strong>fast</strong> linter written in Rust that checks for errors,
+unused variables, and enforces good coding practices.</p>
+<p>While both Black and Ruff modify code, they serve different purposes:</p>
+<ul>
+<li>Black reformats code to follow a consistent style.</li>
+<li>Ruff identifies coding issues and enforces best practices, like unused
+  imports or undefined variables.</li>
+</ul>
+<p>Our goal is to set up an Emacs environment that makes Python and PyTorch
+development smooth, error-free, and efficient.</p>
+<p><strong><em>*Summary of Tools</em></strong>*</p>
+<p>Tool              Purpose</p>
+<hr />
+<p>`python-mode`   Major mode for editing Python code in Emacs.
+  `eglot`         Built-in LSP client to enable features like auto-completion, navigation, and diagnostics via language servers.
+  `pyright`       A fast, feature-rich Python language server.
+  `black`         Automatically formats Python code to follow a consistent style (PEP 8).
+  `ruff`          A fast linter that checks for code issues and enforces style rules.</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://microsoft.github.io/language-server-protocol/">Language Server Protocol
+  (LSP)</a></li>
+<li><a href="https://github.com/microsoft/pyright">Pyright</a></li>
+<li><a href="https://black.readthedocs.io/">Black Formatter</a></li>
+<li><a href="https://docs.astral.sh/ruff/">Ruff Linter</a></li>
+</ul>
+<p>Each of these tools will enhance your Emacs environment for Python and
+PyTorch development.</p>
+<h1 id="creating-a-python-virtual-environment-with-pyenv">Creating a Python Virtual Environment with pyenv</h1>
+<p>Python virtual environments allow you to create isolated environments
+for different projects. This means:</p>
+<ul>
+<li>Each project can have its own version of Python and its own installed
+  packages.</li>
+<li>You avoid conflicts between different package versions across
+  projects.</li>
+<li>You can test code in a clean environment without affecting your system
+  Python or other projects.</li>
+</ul>
+<p>Using virtual environments is considered a best practice for Python
+development --- especially in long-term projects, collaborative
+environments, or when using IDEs like Emacs, VSCode, or PyCharm.</p>
+<h2 id="why-use-pyenv">Why use pyenv?</h2>
+<p>`pyenv` is a tool that helps manage multiple versions of Python. It
+also works well with `pyenv-virtualenv`, an extension that manages
+per-project virtual environments.</p>
+<p>Advantages:</p>
+<ul>
+<li>Install and switch between multiple Python versions easily.</li>
+<li>Keep each project's dependencies separate.</li>
+<li>Automatically activate environments based on project folders.</li>
+</ul>
+<hr />
+<h2 id="step-1-install-pyenv-and-pyenv-virtualenv">Step 1: Install `pyenv` and `pyenv-virtualenv`</h2>
+<p>On macOS, use Homebrew to install:</p>
+<pre><code class="language-shell">brew install pyenv
+brew install pyenv-virtualenv
+</code></pre>
+<p>Check that pyenv is available by running:</p>
+<pre><code class="language-shell">pyenv --version
+</code></pre>
+<p>To make sure it works inside your terminal and Emacs, add this to your
+shell config file (`\~/.bashrc`, or similar):</p>
+<pre><code class="language-shell">export PYENV_ROOT=&quot;$HOME/.pyenv&quot;
+export PATH=&quot;$PYENV_ROOT/bin:$PATH&quot;
+eval &quot;$(pyenv init --path)&quot;
+eval &quot;$(pyenv virtualenv-init -)&quot;
+</code></pre>
+<p>Then reload your shell:</p>
+<pre><code class="language-shell">source ~/.bashrc
+</code></pre>
+<hr />
+<h2 id="step-2-install-python-and-create-a-virtual-environment">Step 2: Install Python and Create a Virtual Environment</h2>
+<p>Once pyenv is set up, you can install a specific version of Python:</p>
+<pre><code class="language-shell">pyenv install --list                 # List all available Python versions
+pyenv install 3.11.6                 # Install the version if not present
+</code></pre>
+<p>Now create a virtual environment using `pyenv-virtualenv`:</p>
+<pre><code class="language-shell">pyenv virtualenv 3.11.6 myenv_name  # Create virtualenv named myenv_name
+pyenv virtualenvs                   # List all existing virtualenvs
+</code></pre>
+<p>This will create a new virtual environment located at:</p>
+<p>\~/Users/\&lt;username&gt;/.pyenv/versions/myenv~name~/</p>
+<hr />
+<h2 id="step-3-link-the-virtual-environment-to-your-project">Step 3: Link the Virtual Environment to Your Project</h2>
+<p>Navigate to your project folder and associate it with the virtualenv:</p>
+<pre><code class="language-shell">cd ~/myproject
+pyenv local myenv_name
+</code></pre>
+<p>This creates a `.python-version` file in your project directory. Tools
+like Emacs and shell terminals will detect this file and automatically
+activate the right Python environment for you.</p>
+<p>:::: note
+::: title
+Note
+:::</p>
+<p>💡 `pyenv local` enables <strong>persistent</strong> activation for the folder,
+making it ideal for development tools like Emacs or VSCode.</p>
+<p>💡 `pyenv activate myenv~name~` only activates it for your current
+shell session. It is useful for quick tests or temporary use.
+::::</p>
+<p>Command          Scope        Use Case</p>
+<hr />
+<p>pyenv activate   Temporary    Manual activation for current shell
+  pyenv local      Persistent   Automatic activation per project</p>
+<hr />
+<h2 id="step-4-install-python-development-tools">Step 4: Install Python Development Tools</h2>
+<p>While inside the virtualenv, install the following Python tools:</p>
+<pre><code class="language-shell">pip install black ruff pyright
+</code></pre>
+<ul>
+<li>`black`: Formats code automatically to follow standard style rules.</li>
+<li>`ruff`: Lints code for common errors and enforces best practices
+  (fast and powerful).</li>
+<li>`pyright`: Language server that provides type checking, completion,
+  and diagnostics.</li>
+</ul>
+<hr />
+<h2 id="step-5-confirm-the-installation-locations">Step 5: Confirm the Installation Locations</h2>
+<p>:::: note
+::: title
+Note
+:::</p>
+<p>Your virtualenv and tools are stored in:</p>
+<ul>
+<li>Virtualenv: <code>~/Users/&lt;username&gt;/.pyenv/versions/myenv_name/</code></li>
+<li>Tools (black, ruff, etc.):
+  <code>~/Users/&lt;username&gt;/.pyenv/versions/myenv_name/bin/</code>
+::::</li>
+</ul>
+<p>This structure keeps your global system clean while giving you a
+per-project setup.</p>
+<hr />
+<h2 id="next-step-configure-emacs-for-python-development">Next Step: Configure Emacs for Python Development</h2>
+<p>With your Python environment ready, it\'s time to connect Emacs to this
+setup.</p>
+<p>We'll configure:</p>
+<ul>
+<li>Automatic virtual environment activation in Emacs</li>
+<li>Eglot as the LSP client</li>
+<li>Black as the auto-formatter</li>
+<li>Ruff + Flycheck for linting</li>
+</ul>
+<h1 id="emacs-configuration-for-python-with-eglot-black-and-ruff">Emacs Configuration for Python with Eglot, Black, and Ruff</h1>
+<p>Now that your virtual environment is ready, let's configure Emacs to:</p>
+<ul>
+<li>Automatically activate the correct Python environment</li>
+<li>Connect to the Pyright language server via Eglot</li>
+<li>Format code with Black on save</li>
+<li>Lint code using Ruff via Flycheck</li>
+</ul>
+<p>We will use the following Emacs packages:</p>
+<p>Package            Purpose</p>
+<hr />
+<p>`python-mode`    Major mode for Python editing
+  `pyvenv`         Interface for managing virtualenvs in Emacs
+  `eglot`          Built-in LSP client in Emacs (connects to Pyright)
+  `python-black`   Formats code automatically using Black on save
+  `flycheck`       On-the-fly syntax checking with Ruff integration</p>
+<hr />
+<h2 id="step-1-make-pyenv-available-to-emacs">Step 1: Make pyenv available to Emacs</h2>
+<p>If you installed pyenv using Homebrew on macOS, you must ensure that
+Emacs sees `/opt/homebrew/bin`.</p>
+<pre><code class="language-commonlisp">;; Add pyenv path to Emacs environment
+(setenv &quot;PATH&quot; (concat &quot;/opt/homebrew/bin:&quot; (getenv &quot;PATH&quot;)))
+(add-to-list 'exec-path &quot;/opt/homebrew/bin&quot;)
+</code></pre>
+<hr />
+<h2 id="step-2-auto-activate-pyenv-virtualenvs-per-project">Step 2: Auto-activate pyenv virtualenvs per project</h2>
+<p>This function looks for a `.python-version` file and automatically
+activates the correct pyenv environment when you open a Python file.</p>
+<pre><code class="language-commonlisp">(defun my/pyenv-auto-activate ()
+  &quot;Auto-activate pyenv virtualenv from .python-version file.&quot;
+  (let* ((root (locate-dominating-file default-directory &quot;.python-version&quot;))
+         (pyenv-file (when root (expand-file-name &quot;.python-version&quot; root))))
+    (when (and pyenv-file (file-exists-p pyenv-file))
+      (let ((env-name (string-trim (with-temp-buffer
+                                     (insert-file-contents pyenv-file)
+                                     (buffer-string)))))
+        (let ((full-path (expand-file-name env-name
+                                           (expand-file-name &quot;versions&quot; (getenv &quot;PYENV_ROOT&quot;)))))
+          (when (file-directory-p full-path)
+            (pyvenv-activate full-path)))))))
+
+(add-hook 'python-mode-hook #'my/pyenv-auto-activate)
+</code></pre>
+<p>This will auto-activate your environment as long as your project
+contains a `.python-version` file created via `pyenv local \&lt;env&gt;`.</p>
+<hr />
+<h2 id="step-3-install-and-configure-emacs-packages">Step 3: Install and configure Emacs packages</h2>
+<p>Make sure you have the following packages installed via `M-x
+package-install` or using `use-package`.</p>
+<pre><code class="language-commonlisp">;; Python editing support
+(use-package python
+  :ensure t
+  :mode (&quot;\\.py\\'&quot; . python-mode))
+
+;; Virtualenv support
+(use-package pyvenv
+  :ensure t
+  :config
+  (pyvenv-mode 1)
+  :hook (python-mode . pyvenv-tracking-mode))
+
+;; LSP client: Eglot + Pyright
+(use-package eglot
+  :ensure t
+  :hook (python-mode . eglot-ensure)
+  :config
+  (add-to-list 'eglot-server-programs
+               '(python-mode . (&quot;pyright-langserver&quot; &quot;--stdio&quot;))))
+
+;; Auto-format code using Black
+(use-package python-black
+  :ensure t
+  :after python
+  :hook (python-mode . python-black-on-save-mode))
+
+;; Real-time linting using Flycheck and Ruff
+(use-package flycheck
+  :ensure t
+  :hook (python-mode . flycheck-mode))
+</code></pre>
+<hr />
+<h2 id="step-4-how-to-test-that-everything-works">Step 4: How to test that everything works</h2>
+<p>Open a `.py` file inside your project folder (which has a
+`.python-version` file), and check the following:</p>
+<h3 id="pyvenv">✅ Pyvenv</h3>
+<ul>
+<li>
+<p>Emacs should automatically activate the virtualenv.</p>
+</li>
+<li>
+<p>Confirm with:</p>
+</li>
+</ul>
+<p><code>{.commonlisp org-language="emacs-lisp"}
+  M-: pyvenv-virtual-env</code></p>
+<ul>
+<li>✔️ Should return the path of your pyenv-managed environment.</li>
+</ul>
+<h3 id="eglot-pyright">✅ Eglot + Pyright</h3>
+<ul>
+<li>You should see: <strong>\"Connected to pyright!\"</strong> in the minibuffer.</li>
+<li>Try:</li>
+<li><code>M-.</code> → Jump to definition</li>
+<li><code>M-x eglot-code-actions</code> → Organize imports or fix issues</li>
+</ul>
+<h3 id="black-formatter">✅ Black Formatter</h3>
+<ul>
+<li>Add some poorly formatted Python code.</li>
+<li>Save the buffer.</li>
+<li>✔️ It should be automatically reformatted.</li>
+</ul>
+<h3 id="ruff-linter-via-flycheck">✅ Ruff Linter via Flycheck</h3>
+<ul>
+<li>
+<p>Add a line like <code>import os</code> without using it.</p>
+</li>
+<li>
+<p>Run:</p>
+</li>
+</ul>
+<p><code>{.commonlisp org-language="emacs-lisp"}
+  M-x flycheck-list-errors</code></p>
+<ul>
+<li>✔️ Should report a linting warning.</li>
+</ul>
+<h3 id="flycheck-setup">✅ Flycheck Setup</h3>
+<ul>
+<li>Run:</li>
+</ul>
+<p><code>{.commonlisp org-language="emacs-lisp"}
+  M-x flycheck-verify-setup</code></p>
+<ul>
+<li>✔️ `python-ruff` should be listed as an active checker.</li>
+</ul>
+<hr />
+<h2 id="optional-manual-environment-activation">Optional: Manual Environment Activation</h2>
+<p>If you want to manually activate a pyenv virtualenv in Emacs:</p>
+<pre><code class="language-commonlisp">M-x pyvenv-activate
+/Users/&lt;username&gt;/.pyenv/versions/myenv_name
+</code></pre>
+<hr />
+<p>The next section will cover:</p>
+<h1 id="commonly-used-eglot-features-for-python-environment">Commonly Used Eglot Features for Python Environment</h1>
+<p>Once Eglot is enabled in a Python buffer, you\'ll see this in the
+minibuffer:</p>
+<p>📡 <strong>Connected to pyright!</strong></p>
+<p>This means Emacs is now talking to the Pyright language server via the
+LSP protocol. You now have access to rich features like code navigation,
+refactoring, formatting, and more --- just like in a full-featured IDE.</p>
+<p>Eglot integrates seamlessly with other Emacs tools like `eldoc`,
+`flymake`, and `completion-at-point`, making it both lightweight and
+powerful.</p>
+<hr />
+<h2 id="navigation-and-editing">Navigation and Editing</h2>
+<p>Action             Command / Keybinding         Description</p>
+<hr />
+<p>Go to Definition   `M-.`                      Jump to where a function, class, or variable is defined
+  Find References    `M-?`                      List all places the symbol is used in the project
+  Rename Symbol      `M-x eglot-rename`         Rename the symbol under cursor across the project
+  Code Actions       `M-x eglot-code-actions`   Show refactorings and quick fixes (like import suggestions)</p>
+<p>💡 <strong>Tip</strong>: These features work best when your virtual environment is
+active and your buffer is saved.</p>
+<hr />
+<h2 id="documentation-and-feedback">Documentation and Feedback</h2>
+<p>Feature               Command / Behavior                        Description</p>
+<hr />
+<p>Hover Documentation   Move cursor over symbol                   Shows function/type info in echo area (via `eldoc`)
+  Show Diagnostics      `M-x flymake-show-buffer-diagnostics`   Show inline errors and warnings (from Pyright)
+  Format Buffer         `M-x eglot-format-buffer`               Format entire buffer using the server\'s formatter</p>
+<ul>
+<li>Diagnostics are powered by Flymake (built into Emacs).</li>
+<li>Formatting works if the language server supports it (Pyright does not
+  format --- we use Black instead).</li>
+</ul>
+<hr />
+<h2 id="optional-completion-with-corfu">Optional: Completion with Corfu</h2>
+<p>While Emacs has built-in completion, the <strong><em>*Corfu</em></strong>* package offers a
+better UI for completions triggered by Eglot.</p>
+<pre><code class="language-commonlisp">(use-package corfu
+  :ensure t
+  :init
+  (global-corfu-mode)
+  :custom
+  (corfu-auto t)                ;; Enable auto-completion
+  (corfu-auto-delay 0.1)        ;; Delay before suggestions
+  (corfu-auto-prefix 1)         ;; Trigger after 1 character
+  (corfu-cycle t)               ;; Wrap around suggestions
+  (corfu-echo-documentation t) ;; Show documentation popup
+  :config
+  (corfu-popupinfo-mode))      ;; Enable popup for docs (GUI only)
+</code></pre>
+<p>To allow Corfu in the minibuffer (e.g., for `M-:` or
+`eval-expression`), add:</p>
+<pre><code class="language-commonlisp">(defun my/corfu-enable-in-minibuffer ()
+  &quot;Enable Corfu in the minibuffer if appropriate.&quot;
+  (when (where-is-internal #'completion-at-point (list (current-local-map)))
+    (setq-local corfu-auto nil)
+    (corfu-mode 1)))
+
+(add-hook 'minibuffer-setup-hook #'my/corfu-enable-in-minibuffer)
+</code></pre>
+<p>Corfu will now handle completions across your project smoothly,
+enhancing the experience without relying on external LSP UI tools.</p>
+<hr />
+<h2 id="coming-next-code-formatting-and-linting-with-black-and-ruff">Coming Next: Code Formatting and Linting with Black and Ruff</h2>
+<p>You now have a fully functional LSP setup for Python in Emacs. In the
+next section, we'll focus on formatting and linting your code
+automatically using:</p>
+<ul>
+<li>`black`: Python formatter</li>
+<li>`ruff`: Fast linter with autofix support</li>
+</ul>
+<h1 id="black-and-ruff-code-formatting-and-linting">Black and Ruff: Code Formatting and Linting</h1>
+<p>A great Python development setup doesn't just work --- it also helps
+keep your code clean and consistent.</p>
+<p>This is where <strong><em>*Black</em></strong><em> (a code formatter) and </em><strong><em>Ruff</em></strong>* (a
+linter) come in. Together, they enforce consistent code style, catch
+common mistakes, and help you write more readable and maintainable code.</p>
+<hr />
+<h2 id="black-automatic-code-formatter">Black: Automatic Code Formatter</h2>
+<p>Black is a <strong><em>*highly opinionated code formatter</em></strong>* for Python. It
+reformats your code automatically to follow consistent style rules.</p>
+<h3 id="why-use-black">Why use Black?</h3>
+<ul>
+<li>🧼 Automatically enforces a uniform code style.</li>
+<li>🧠 Removes debates about formatting choices.</li>
+<li>🧩 Ensures <strong><em>*PEP 8</em></strong>* compliance.</li>
+<li>💾 Runs every time you save a file (in our Emacs setup).</li>
+</ul>
+<h3 id="example">Example</h3>
+<ul>
+<li>Before formatting:</li>
+</ul>
+<p><code>python
+  def my_function(x,y): return x+  y</code></p>
+<ul>
+<li>After running Black:</li>
+</ul>
+<p><code>python
+  def my_function(x, y):
+      return x + y</code></p>
+<p>Black integrates with Emacs via the <code>python-black-on-save-mode</code>, so no
+manual steps are required --- just save the file!</p>
+<hr />
+<h2 id="ruff-python-linter-and-code-fixer">Ruff: Python Linter and Code Fixer</h2>
+<p>Ruff is a <strong><em>*blazing-fast linter and code fixer</em></strong>* written in Rust.
+Unlike traditional linters, it\'s fast enough to run on every keystroke
+--- but even once per save is plenty.</p>
+<h3 id="why-use-ruff">Why use Ruff?</h3>
+<ul>
+<li>🐍 Catches <strong><em>*syntax errors</em></strong><em>, </em><strong><em>unused variables</em></strong><em>, and
+  </em><strong><em>style issues</em></strong>*.</li>
+<li>🚀 <strong><em>*Much faster</em></strong>* than `flake8`, `pylint`, or
+  `pycodestyle`.</li>
+<li>🔧 Can automatically fix many issues (`ruff --fix` or via Emacs).</li>
+</ul>
+<h3 id="example_1">Example</h3>
+<ul>
+<li>Problematic code:</li>
+</ul>
+<p>``` python
+  import numpy as np  # Unused import</p>
+<p>x = 10  # Unused variable
+  print("Hello, World!")
+  ```</p>
+<ul>
+<li>
+<p>Ruff detects: test.py:1:1: F401 \'numpy as np\' imported but unused
+  test.py:3:1: F841 local variable \'x\' is assigned to but never used</p>
+</li>
+<li>
+<p>You can fix these:</p>
+</li>
+<li>
+<p>In the terminal: <code>ruff --fix test.py</code></p>
+</li>
+<li>
+<p>In Emacs: <code>M-x eglot-code-actions</code> (choose Ruff's autofix option)</p>
+</li>
+</ul>
+<h3 id="emacs-integration-via-flycheck">Emacs Integration via Flycheck</h3>
+<p>If you've installed `flycheck` and `ruff`, Emacs will show linting
+issues inline as you type or save.</p>
+<p>To view them:</p>
+<ul>
+<li>Run: <code>M-x flycheck-list-errors</code></li>
+<li>Hover over underlined code to view tooltips</li>
+<li>Run: <code>M-x flycheck-verify-setup</code> to confirm `python-ruff` is active</li>
+</ul>
+<p>You can also customize the behavior of Flycheck or integrate Ruff
+directly as a checker if needed.</p>
+<hr />
+<h2 id="summary">Summary</h2>
+<p>Tool    Purpose           Runs on Save?       Can Autofix?</p>
+<hr />
+<p>Black   Code formatting   ✅                  ✅ (auto)
+  Ruff    Linting &amp; fixes   ✅ (via Flycheck)   ✅ (via `--fix` or code actions)</p>
+<p>With <strong><em>*Black</em></strong><em> and </em><strong><em>Ruff</em></strong>* set up, your Emacs environment
+ensures your code is:</p>
+<ul>
+<li>✅ Clean</li>
+<li>✅ Well-formatted</li>
+<li>✅ Free of common mistakes</li>
+</ul>
+<p>If it points to `/usr/bin/python`, your virtualenv is not active.</p>
+<hr />
+<h2 id="is-eglot-connected-to-pyright">✅ Is Eglot Connected to Pyright?</h2>
+<p>When you open a `.py` file, Eglot should automatically connect. Look
+for:</p>
+<p>📡 <strong>Connected to pyright!</strong> in the minibuffer.</p>
+<p>You can also manually check with:</p>
+<pre><code class="language-commonlisp">M-x eglot
+</code></pre>
+<p>If Eglot fails to connect:</p>
+<ul>
+<li>Check if `pyright` is installed in the virtualenv: `pip show
+  pyright`</li>
+<li>Try running `pyright` from the terminal to confirm it works</li>
+<li>Restart Emacs</li>
+</ul>
+<hr />
+<h2 id="is-black-working">✅ Is Black Working?</h2>
+<p>To test that Black is formatting on save:</p>
+<ol>
+<li>
+<p>Paste badly formatted code into a Python file:</p>
+<p><code>python
+def test(x,y): return x+ y</code></p>
+</li>
+<li>
+<p>Save the buffer.</p>
+</li>
+<li>
+<p>✔️ Code should be auto-formatted like this:</p>
+<p><code>python
+def test(x, y):
+    return x + y</code></p>
+</li>
+</ol>
+<p>If it's not formatting:</p>
+<ul>
+<li>Make sure `python-black-on-save-mode` is active:</li>
+</ul>
+<p><code>{.commonlisp org-language="emacs-lisp"}
+  M-: (bound-and-true-p python-black-on-save-mode) RET</code></p>
+<ul>
+<li>Check if Black is installed: `pip show black`</li>
+</ul>
+<hr />
+<h2 id="is-ruff-working-linting">✅ Is Ruff Working (Linting)?</h2>
+<ol>
+<li>
+<p>Add some code with obvious issues:</p>
+<p>``` python
+import os  # unused</p>
+<p>x = 10     # unused
+```</p>
+</li>
+<li>
+<p>Save the file.</p>
+</li>
+<li>
+<p>Run:</p>
+<p><code>{.commonlisp org-language="emacs-lisp"}
+M-x flycheck-list-errors</code></p>
+</li>
+<li>
+<p>✔️ You should see warnings from `ruff`, e.g.:</p>
+</li>
+</ol>
+<p>test.py:1:1: F401 \'os\' imported but unused test.py:3:1: F841 local
+variable \'x\' is assigned to but never used</p>
+<p>Also verify your active checkers with:</p>
+<pre><code class="language-commonlisp">M-x flycheck-verify-setup
+</code></pre>
+<ul>
+<li>✔️ You should see: `Checker: python-ruff`</li>
+<li>❌ If not listed, ensure `ruff` is installed in the active
+  environment</li>
+</ul>
+<hr />
+<h2 id="minimal-debug-file-to-test-everything">🔍 Minimal Debug File to Test Everything</h2>
+<p>Here is a small Python file you can paste into Emacs to test your setup:</p>
+<pre><code class="language-python"># test.py
+import os  # unused import
+
+def test(  x ,y): return x+y   # bad formatting and unused var
+
+x = 5
+</code></pre>
+<p>Save the file and verify that:</p>
+<ul>
+<li>Black reformats it</li>
+<li>Ruff shows diagnostics via Flycheck</li>
+<li>Eglot connects and offers navigation / code actions</li>
+</ul>
+<hr />
+<h2 id="still-not-working">🔧 Still Not Working?</h2>
+<ul>
+<li>Try restarting Emacs and reopening the file.</li>
+<li>Open `*Messages*` buffer (<code>C-h e</code>) to see any warnings.</li>
+<li>Open `*EGLOT (project-name)*` buffer for LSP logs.</li>
+<li>Run: `M-x describe-variable RET eglot-server-programs RET`</li>
+<li>Check if `pyright` is available with `M-x shell-command RET pyright
+  --version`</li>
+</ul>
+<hr />
+<p>This section helps you systematically verify each component of your
+Emacs Python IDE setup.</p>
+<h1 id="final-thoughts-and-tips">Final Thoughts and Tips</h1>
+<p>You\'ve now set up Emacs as a full-featured Python IDE using:</p>
+<ul>
+<li>✅ `eglot` for Language Server integration</li>
+<li>✅ `pyright` for intelligent code navigation and type checking</li>
+<li>✅ `black` for automatic code formatting</li>
+<li>✅ `ruff` for fast linting and code fixes</li>
+<li>✅ `pyenv` + `pyvenv` for per-project virtual environments</li>
+<li>✅ `corfu` for clean and modern completions</li>
+<li>✅ `flycheck` for real-time lint feedback</li>
+</ul>
+<p>This setup strikes a balance between being <strong>lightweight</strong>, <strong>modern</strong>,
+and <strong>completely customizable</strong> --- all within Emacs!</p>
+<hr />
+<h2 id="tips-for-daily-use">Tips for Daily Use</h2>
+<ul>
+<li>Always create a `.python-version` in each project to auto-activate
+  the environment.</li>
+<li>Run <code>M-x flycheck-verify-setup</code> occasionally to ensure the right
+  checkers are active.</li>
+<li>Use <code>M-x eglot-code-actions</code> regularly for auto-imports, refactors,
+  and quick fixes.</li>
+<li>Use <code>C-c C-f</code> (or bind it yourself) to quickly run
+  <code>eglot-format-buffer</code> if needed.</li>
+<li>Save often to trigger Black and Ruff integrations.</li>
+</ul>
+<hr />
+<h2 id="resources">Resources</h2>
+<ul>
+<li><a href="https://github.com/joaotavora/eglot">Eglot on GitHub</a></li>
+<li><a href="https://github.com/microsoft/pyright">Pyright Language Server</a></li>
+<li><a href="https://black.readthedocs.io">Black Formatter Docs</a></li>
+<li><a href="https://docs.astral.sh/ruff">Ruff Linter Docs</a></li>
+<li><a href="https://github.com/pyenv/pyenv">pyenv on GitHub</a></li>
+</ul>
+<hr />
+<h2 id="acknowledgements">Acknowledgements</h2>
+<p>This tutorial was created to provide a lightweight and efficient Python
+development environment inside Emacs, ideal for research, teaching, or
+professional software development.</p>
+<h1 id="emacs-overview">Emacs Overview</h1>
+<ul>
+<li>Emacs is a powerful, extensible, and customizable text editor known
+  for its versatility and extensive package support. Emacs can be
+  configured to support a wide range of programming and text-editing
+  needs, from code editing to project management, publishing, and more.</li>
+</ul>
+<h1 id="performing-replace-operations-across-multiple-files">Performing Replace Operations Across Multiple Files</h1>
+<ul>
+<li>Emacs offers ways to perform search and replace operations across
+  multiple files.</li>
+<li><a href="https://www.gnu.org/software/emacs/manual/html_node/efaq/Replacing-text-across-multiple-files.html">GNU Emacs Manual: Replacing Text Across Multiple
+  Files</a></li>
+<li><a href="https://stackoverflow.com/questions/270930/using-emacs-to-recursively-find-and-replace-in-text-files-not-already-open">Stack Overflow: Find and Replace in Multiple
+  Files</a></li>
+</ul>
+<pre><code class="language-commonlisp">;; Using Dired mode (directory mode):
+;; 1. Open Dired mode with `M-x dired` or `C-x d`.
+;; 2. Mark files to operate on with `t`.
+;; 3. Press `Q` to start a `query-replace-regexp` on the marked files.
+;; 4. Press `!` to accept all replacements.
+
+;; Alternatively, use `tags-query-replace` with a TAGS file.
+</code></pre>
+<h1 id="emacs-todos">Emacs TODOs</h1>
+<ul>
+<li>[ ] Learn how to bookmark a line and return to it later.</li>
+</ul>
+<h1 id="emacs-keyboard-shortcuts">Emacs Keyboard Shortcuts</h1>
+<ul>
+<li><a href="https://www.reddit.com/r/emacs/comments/x43eie/heres_a_list_of_emacs_keyboard_shortcuts_that_i/?utm_source=share&amp;utm_medium=ios_app&amp;utm_name=iossmf">Reddit List of Emacs
+  Shortcuts</a></li>
+<li><a href="https://github.com/VernonGrant/emacs-keyboard-shortcuts">GitHub Repository of Emacs
+  Shortcuts</a></li>
+</ul>
+<p><strong>Keyboard Shortcut</strong>   <strong>Function</strong>            <strong>Description</strong></p>
+<hr />
+<p>C-h i                   Info mode               Access manuals and info about modes
+  C-h k                   Describe key            Get information about a specific key
+  C-h m                   Describe mode           Displays documentation for the current mode
+  C-x C-q                 Toggle read-only mode   Enable or disable read-only mode
+  C-x n s                 Narrow to subtree       Narrow the buffer to the current subtree
+  C-c \"\"                Insert Zotero item      Insert a reference link from Zotero
+  F10                     Open menu               Access menu items via keyboard</p>
+<h1 id="modes-and-extensions">Modes and Extensions</h1>
+<h2 id="helm-mode">Helm Mode</h2>
+<ul>
+<li>Helm provides a powerful completion and narrowing framework for Emacs.</li>
+<li><a href="https://wikemacs.org/wiki/Helm">Quick Helm Guide</a></li>
+</ul>
+<p>Command   Description</p>
+<hr />
+<p>C-t       Toggle horizontal/vertical view
+  C-c ?     Show Helm help
+  TAB       Access actions menu
+  C-SPC     Mark multiple candidates for actions</p>
+<h2 id="org-mode">Org Mode</h2>
+<ul>
+<li>Org mode enables text organization, task management, and code
+  execution within Emacs.</li>
+</ul>
+<p><strong>*</strong> Previewing LaTeX in Org Mode</p>
+<ul>
+<li>Add `#+STARTUP: latexpreview` to enable LaTeX previewing.</li>
+<li>Use `C-c C-x C-l` to preview LaTeX at point.</li>
+<li><a href="https://orgmode.org/manual/Previewing-LaTeX-fragments.html">LaTeX Fragment Preview
+  Documentation</a></li>
+</ul>
+<h2 id="auctex">AUCTeX</h2>
+<ul>
+<li>AUCTeX enhances Emacs for LaTeX editing, with commands for compiling,
+  inserting citations, and navigating structured documents.</li>
+<li><a href="https://weikaichen.gitee.io/en/post/emacs-academic-tools/">Useful AUCTeX
+  Tricks</a></li>
+</ul>
+<p>Shortcut   Description</p>
+<hr />
+<p>C-c =      Show table of contents
+  C-c [     Insert citation
+  C-c )      Insert cross-reference
+  C-c \~     Enable LaTeX math mode</p>
+<h2 id="magit-mode">Magit Mode</h2>
+<ul>
+<li>Magit provides a Git interface within Emacs for version control.</li>
+</ul>
+<p>Shortcut   Description</p>
+<hr />
+<p>C-x g      Open Magit status
+  s          Stage changes
+  c c        Commit
+  P u        Push to upstream</p>
+<h1 id="emacs-jupyter-mode">Emacs Jupyter Mode</h1>
+<ul>
+<li>`emacs-jupyter` enables Jupyter notebook support within Emacs,
+  providing interactive data analysis and exploration.</li>
+<li><a href="https://github.com/emacs-jupyter/jupyter">Emacs Jupyter GitHub Page</a></li>
+</ul>
+<pre><code class="language-jupyter">import pandas as pd
+data = [[1, 2], [3, 4]]
+pd.DataFrame(data, columns=[&quot;Foo&quot;, &quot;Bar&quot;])
+</code></pre>
+<h1 id="additional-tips-and-commands">Additional Tips and Commands</h1>
+<h2 id="disabling-subscript-in-org-mode-html-export">Disabling Subscript in Org Mode HTML Export</h2>
+<ul>
+<li>To prevent underscores from creating subscripts, add the following
+  option:</li>
+</ul>
+<h2 id="installing-and-deleting-packages">Installing and Deleting Packages</h2>
+<pre><code class="language-commonlisp">;; To install a package
+M-x package-install
+
+;; To delete a package
+M-x package-delete
+</code></pre>
+<h2 id="code-blocks-in-org-mode">Code Blocks in Org Mode</h2>
+<ul>
+<li>Use `C-c C-c` to execute code blocks in Org mode.</li>
+</ul>
+<pre><code class="language-python">friends = ['pisu', 'ada', 'makmus']
+for i in friends:
+    print(&quot;Hello &quot; + i)
+</code></pre>
+<h1 id="starting-emacs-with-a-specific-init-file">Starting Emacs with a Specific Init File</h1>
+<p>To start Emacs with a specific initialization file, you can use the
+`-q`, `--no-init-file`, or `-l FILENAME` options when launching
+Emacs.</p>
+<h2 id="using-the-q-option">Using the `-q` option</h2>
+<p>If you want to start Emacs without loading any user init file
+(`\~/.emacs`, `\~/.emacs.d/init.el`, or
+`\~/.config/emacs/init.el`), use:</p>
+<pre><code class="language-bash">emacs -q
+</code></pre>
+<p>This ensures that no user configuration is loaded.</p>
+<h2 id="using-the-no-init-file-option">Using the `--no-init-file` option</h2>
+<p>This is equivalent to `-q`:</p>
+<pre><code class="language-bash">emacs --no-init-file
+</code></pre>
+<h2 id="loading-a-specific-init-file">Loading a Specific Init File</h2>
+<p>To start Emacs with a custom initialization file, use the `-l` or
+`--load` option followed by the filename:</p>
+<pre><code class="language-bash">emacs -l ~/.emacs.d/custom-init.el
+</code></pre>
+<p>or</p>
+<pre><code class="language-bash">emacs --load ~/.config/emacs/my-init.el
+</code></pre>
+<p>This loads the specified file as the initialization file.</p>
+<h2 id="running-emacs-with-a-temporary-init-file">Running Emacs with a Temporary Init File</h2>
+<p>If you want to run Emacs with a completely different configuration, you
+can specify a different home directory using the `--init-directory`
+(Emacs 29+) or set `HOME`:</p>
+<pre><code class="language-bash">HOME=~/my-emacs-config emacs
+</code></pre>
+<p>This makes Emacs look for an init file in
+`\~/my-emacs-config/.emacs.d/init.el` instead of the default location.</p>
+<p>Alternatively, you can start Emacs with `--init-directory` (Emacs
+29+):</p>
+<pre><code class="language-bash">emacs --init-directory ~/my-emacs-config
+</code></pre>
+<p>This allows you to use a custom Emacs directory without changing
+`HOME`.</p>
+<h2 id="debugging-initialization-issues">Debugging Initialization Issues</h2>
+<p>If you suspect issues in your init file, you can start Emacs in debug
+mode:</p>
+<pre><code class="language-bash">emacs --debug-init
+</code></pre>
+<p>This prints errors that occur during initialization.</p>
+<p>If you want to temporarily bypass init file errors and start with a
+clean session, use:</p>
+<pre><code class="language-bash">emacs -Q
+</code></pre>
+<p>This is similar to `-q` but also skips loading site-wide
+configurations.</p>
+<h2 id="example-usage">Example Usage</h2>
+<p>To load a custom init file and run in debug mode:</p>
+<pre><code class="language-bash">emacs --debug-init -l ~/.config/emacs/alternative-init.el
+</code></pre>
+<p>For a minimal Emacs session without user configuration:</p>
+<pre><code class="language-bash">emacs -Q
+</code></pre>
+<h1 id="useful-links">Useful Links</h1>
+<ul>
+<li><a href="https://systemcrafters.net/publishing-websites-with-org-mode/automated-site-publishing/">Automated Org Mode Website
+  Publishing</a></li>
+<li><a href="https://plantuml.com/emacs">Using PlantUML in Emacs</a></li>
+<li><a href="https://orgmode.org/guide/Capture.html">Org Mode Capture Templates</a></li>
+<li><a href="https://emacsdocs.org/docs/org/Capture-templates">Org Capture
+  Documentation</a></li>
+<li><a href="https://github.com/redguardtoo/mastering-emacs-in-one-year-guide/blob/master/guide-en.org">Mastering Emacs in One Year
+  Guide</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "navigation.numbering"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.50899def.min.js"></script>
+      
+    
+  </body>
+</html>
