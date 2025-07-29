@@ -1,4 +1,62 @@
-site_name: Tutorial
+# Name of the site (appears in the navbar and title)
+site_name: My Docs           # Change this to your site title
+
+
+# URL where your site will be hosted
+site_url: https://sbilmis.github.io/my_tutorials/  # Optional, helps with sitemap generation
+
+# # Repository info (adds "Edit on GitHub" links if theme supports it)
+# repo_url: https://github.com/user/repo  # Your repo URL
+# repo_name: GitHub                      # Text for the link
+
+# Directory where your docs are stored
+docs_dir: docs
+
+# Theme configuration
 theme:
-  name: material
-site_url: https://sbilmis.github.io/my-tutorials/
+  name: material              # Change to 'readthedocs', 'mkdocs', etc.
+  language: en                # Site language
+  features:                   # Material theme features
+    - navigation.expand       # Expand all nav sections by default
+    - search.highlight        # Highlight search terms in results
+    - search.share            # Add "Share" button in search
+  palette:
+    primary: red           # Primary color
+    accent: blue              # Accent color
+  font:
+    text: Roboto              # Main font
+    code: Roboto Mono         # Font for code blocks
+
+# Navigation (controls sidebar order)
+nav:
+  - Home: index.md
+  - Emacs:
+      - e1: emacs/e1.md
+      - e2: emacs/e2.md
+
+# Plugins (extend functionality)
+plugins:
+  - search                   # Default search
+  - awesome-pages            # Auto nav based on folder structure
+  # - minify                 # Minify HTML (uncomment if installed)
+  - glightbox
+  - mermaid2
+# Markdown extensions (extra features in Markdown)
+markdown_extensions:
+  - toc:                     # Table of contents
+      permalink: true        # Adds link anchors to headings
+  - admonition               # Adds !!! note/warning blocks
+  - codehilite               # Syntax highlighting for code
+  - footnotes                # Footnote support
+  - tables                   # Better table support
+
+# Extra files or settings
+extra:
+  social:                    # Social links in footer (Material only)
+    - icon: fontawesome/brands/github
+      link: https://github.com/sbilmis
+
+  
+plugins:
+    - search    
+    - awesome-pages
