@@ -1,62 +1,101 @@
-# Name of the site (appears in the navbar and title)
-site_name: My Docs           # Change this to your site title
-
+# Name of the site
+site_name: My Docs
 
 # URL where your site will be hosted
-site_url: https://sbilmis.github.io/my_tutorials/  # Optional, helps with sitemap generation
+site_url: https://sbilmis.github.io/my_tutorials/
+repo_url: https://github.com/sbilmis/my_tutorials
+repo_name: sbilmis/my_tutorials
+edit_uri: edit/main/docs/  # Points the 'edit' button to the right folder
 
-# # Repository info (adds "Edit on GitHub" links if theme supports it)
-# repo_url: https://github.com/user/repo  # Your repo URL
-# repo_name: GitHub                      # Text for the link
 
 # Directory where your docs are stored
 docs_dir: docs
 
 # Theme configuration
 theme:
-  name: material              # Change to 'readthedocs', 'mkdocs', etc.
-  language: en                # Site language
-  features:                   # Material theme features
-    - navigation.expand       # Expand all nav sections by default
-    - search.highlight        # Highlight search terms in results
-    - search.share            # Add "Share" button in search
+  name: material
+  custom_dir: overrides
+  language: en
+  features:
+    - navigation.tabs           # MOVES top-level links (Emacs, Data) to a top header bar
+    - navigation.sections       # Groups sidebar items nicely
+    - navigation.top            # Adds a "Back to Top" button when scrolling up
+    - navigation.tracking       # URL changes as you scroll through headers
+    - content.code.copy         # ADDS the "Copy" button to code blocks
+    - search.highlight          # Highlight search terms
+    - search.share              # Share button
   palette:
-    primary: red           # Primary color
-    accent: blue              # Accent color
+    # Light Mode
+    - scheme: default
+      primary: blue-grey
+      accent: deep-orange 
+      toggle:
+        icon: material/brightness-7 
+        name: Switch to dark mode
+    # Dark Mode
+    - scheme: slate
+      primary: blue-grey
+      accent: deep-orange
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
   font:
-    text: Roboto              # Main font
-    code: Roboto Mono         # Font for code blocks
+    text: Roboto
+    code: Roboto Mono
 
-# Navigation (controls sidebar order)
+# Navigation
 nav:
   - Home: index.md
   - Emacs:
       - e1: emacs/e1.md
       - e2: emacs/e2.md
+  - Data Management:
+      # Ensure this folder name matches your actual folder (dash vs underscore)
+      - Downloading Massive Datasets (Zenodo): data_management/downloading-large-datasets.md
 
-# Plugins (extend functionality)
+# Plugins
 plugins:
-  - search                   # Default search
-  - awesome-pages            # Auto nav based on folder structure
-  # - minify                 # Minify HTML (uncomment if installed)
+  - search
+  - awesome-pages
   - glightbox
   - mermaid2
-# Markdown extensions (extra features in Markdown)
-markdown_extensions:
-  - toc:                     # Table of contents
-      permalink: true        # Adds link anchors to headings
-  - admonition               # Adds !!! note/warning blocks
-  - codehilite               # Syntax highlighting for code
-  - footnotes                # Footnote support
-  - tables                   # Better table support
 
-# Extra files or settings
-extra:
-  social:                    # Social links in footer (Material only)
-    - icon: fontawesome/brands/github
-      link: https://github.com/sbilmis
+# Markdown extensions (The "Pro" Suite)
+markdown_extensions:
+  - admonition
+  - footnotes
+  - attr_list                   # Allows adding CSS classes to elements
+  - md_in_html
+  - pymdownx.details            # Better than standard admonitions (collapsible)
+  - pymdownx.superfences:       # Essential for advanced code blocks
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:         # Better highlighting than 'codehilite'
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.tabbed:            # Allows tabs INSIDE your markdown content
+      alternate_style: true 
+  - pymdownx.arithmatex:        # Math/LaTeX support
+      generic: true
+  - toc:
+      permalink: true
+
+# Extra CSS for MathJax (Required for the math to render)
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit
+  - javascripts/google-translate.js
+
 
   
-plugins:
-    - search    
-    - awesome-pages
+extra:
+  social:
+    - icon: fontawesome/brands/github 
+      link: https://github.com/sbilmis
+    - icon: fontawesome/brands/linkedin
+      link: https://linkedin.com/in/selcuk-bilmis-06781288
+      

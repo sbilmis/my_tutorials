@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block content %}
+{{ super() }}
+
+<div id="translation-box" style="position:fixed; bottom:20px; right:20px; z-index:9999; display:flex; flex-direction:column; align-items:flex-end; gap:5px;">
+    
+    <button onclick="closeWidget()" title="Close Translator" style="background:#333; color:white; border:none; width:24px; height:24px; border-radius:50%; cursor:pointer; font-weight:bold; font-size:14px; line-height:1; box-shadow:0 2px 5px rgba(0,0,0,0.3); margin-bottom:-5px; z-index:10001;">
+        &times;
+    </button>
+
+    <div style="background:white; padding:10px; border-radius:8px; box-shadow:0px 4px 12px rgba(0,0,0,0.15); border: 1px solid #e0e0e0; display:flex; align-items:center; gap:10px;">
+        
+        <div id="google_translate_element"></div>
+
+        <button onclick="resetTranslation()" style="background:#f5f5f5; border:1px solid #ddd; padding:5px 10px; border-radius:4px; cursor:pointer; font-size:12px; color:#333; font-family:Roboto,sans-serif; font-weight: 500;">
+            Original
+        </button>
+    </div>
+</div>
+
+<script type="text/javascript">
+  // A. Session Check: Keep widget closed if user clicked 'X' previously
+  if (sessionStorage.getItem('translation-widget-closed') === 'true') {
+      document.getElementById('translation-box').style.display = 'none';
+  }
+
+  // B. Google Translate Init
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'en',
+      // THIS LINE limits the dropdown to ONLY Turkish and English
+      includedLanguages: 'tr,en', 
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+      autoDisplay: false
+    }, 'google_translate_element');
+  }
+
+  // C. Close Function
+  function closeWidget() {
+      document.getElementById('translation-box').style.display = 'none';
+      // Remember the user's choice to close it
+      sessionStorage.setItem('translation-widget-closed', 'true');
+  }
+
+  // D. Reset Function (Force reload to English)
+  function resetTranslation() {
+      // Clear all Google Translate cookies
+      var cookies = document.cookie.split(";");
+      for (var i = 0; i < cookies.length; i++) {
+          var cookie = cookies[i];
+          var eqPos = cookie.indexOf("=");
+          var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+          if (name.trim() === "googtrans") {
+              document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/";
+              document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/my_tutorials";
+          }
+      }
+      location.reload();
+  }
+
+  // E. Safety Shield: Protect Code Blocks from Translation
+  document.addEventListener("DOMContentLoaded", function() {
+      var codeBlocks = document.querySelectorAll('pre, code, .highlight');
+      codeBlocks.forEach(function(block) {
+          block.classList.add('notranslate'); 
+      });
+  });
+</script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<style>
+    /* Hide Google branding for a cleaner look */
+    .goog-logo-link { display: none !important; }
+    .goog-te-gadget { line-height: 0 !important; color: transparent !important; }
+    
+    /* Clean up the dropdown style */
+    .goog-te-gadget .goog-te-combo { margin: 0 !important; padding: 4px; border-radius: 4px; border: 1px solid #ccc; font-size: 14px; }
+    
+    /* Hide the top banner */
+    .goog-te-banner-frame { display: none !important; }
+    body { top: 0px !important; }
+</style>
+
+{% endblock %}
