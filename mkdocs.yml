@@ -68,9 +68,9 @@ markdown_extensions:
   - attr_list                   # Allows adding CSS classes to elements
   - md_in_html
   - pymdownx.details            # Better than standard admonitions (collapsible)
-  - pydownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.superfences:       # Essential for advanced code blocks
       custom_fences:
         - name: mermaid
