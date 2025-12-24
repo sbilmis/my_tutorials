@@ -1,0 +1,5 @@
+deploy:
+   git add --all
+   git commit -m "$(msg)"
+   git push
+   mkdocs gh-deploy
