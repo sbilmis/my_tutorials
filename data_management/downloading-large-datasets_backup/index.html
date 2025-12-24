@@ -8,6 +8,10 @@
         <link rel="canonical" href="https://sbilmis.github.io/my_tutorials/data_management/downloading-large-datasets_backup/">
       
       
+        <link rel="prev" href="../downloading-large-datasets/">
+      
+      
+        <link rel="next" href="../../emacs/">
       
       
         
@@ -235,7 +239,7 @@
   
     
   
-  Home
+  👋 Welcome to My Digital Notebook
 
       </a>
     </li>
@@ -246,15 +250,17 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../emacs/e1/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../downloading-large-datasets/" class="md-tabs__link">
           
   
   
-  Emacs
+  Data management
 
         </a>
       </li>
@@ -270,11 +276,11 @@
     
     
       <li class="md-tabs__item">
-        <a href="../downloading-large-datasets/" class="md-tabs__link">
+        <a href="../../emacs/" class="md-tabs__link">
           
   
   
-  Data Management
+  Emacs
 
         </a>
       </li>
@@ -341,7 +347,7 @@
   <span class="md-ellipsis">
     
   
-    Home
+    👋 Welcome to My Digital Notebook
   
 
     
@@ -358,33 +364,38 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
             
   
   
   <span class="md-ellipsis">
     
   
-    Emacs
+    Data management
   
 
     
@@ -395,12 +406,12 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
   
-    Emacs
+    Data management
   
 
           </label>
@@ -413,14 +424,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../emacs/e1/" class="md-nav__link">
+      <a href="../downloading-large-datasets/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    e1
+    Tutorial: How to Download Massive Datasets from Zenodo
   
 
     
@@ -438,17 +449,44 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../emacs/e2/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorial: How to Download Massive Datasets from Zenodo
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
   <span class="md-ellipsis">
     
   
-    e2
+    Tutorial: How to Download Massive Datasets from Zenodo
   
 
     
@@ -457,6 +495,343 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-context-what-are-we-downloading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Context: What are we downloading?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Context: What are we downloading?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-zenodo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is Zenodo?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-example-openaire-graph" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Example: OpenAIRE Graph
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-the-golden-rule-of-large-downloads" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. The "Golden Rule" of Large Downloads
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-method-1-the-easiest-way-zenodo_get" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Method 1: The Easiest Way (zenodo_get)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Method 1: The Easiest Way (zenodo_get)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-a-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step A: Installation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-b-identify-the-record-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step B: Identify the Record ID
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-c-the-robust-download-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step C: The Robust Download Command
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-resume-if-it-crashes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to Resume if it crashes?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-method-2-the-high-speed-way-aria2c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Method 2: The High-Speed Way (aria2c)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Method 2: The High-Speed Way (aria2c)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#advantages-of-aria2c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advantages of aria2c
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-a-get-the-links-first" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step A: Get the Links first
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-b-download-with-aria2c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step B: Download with aria2c
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-method-3-the-standard-way-wget" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Method 3: The Standard Way (wget)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Method 3: The Standard Way (wget)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#advantages-of-wget" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advantages of wget
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-download" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to Download
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-step-4-how-to-handle-the-data-read-vs-extract" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Step 4: How to Handle the Data (Read vs. Extract)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Step 4: How to Handle the Data (Read vs. Extract)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option-a-the-recommended-way-do-not-extract" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option A: The Recommended Way (Do NOT Extract)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-b-if-you-must-extract-advanced" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option B: If you MUST Extract (Advanced)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-expert-mode-getting-links-without-zenodo_get" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Expert Mode: Getting Links without zenodo_get
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Expert Mode: Getting Links without zenodo_get">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Command
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#knowledge-check-try-it-yourself" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧠 Knowledge Check: Try it Yourself
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🧠 Knowledge Check: Try it Yourself">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#challenge-1-get-the-specific-link" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Challenge 1: Get the specific link
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#challenge-2-download-only-the-small-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Challenge 2: Download only the small file
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#challenge-3-the-safe-extraction-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Challenge 3: The "Safe Extraction" Test
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -499,7 +874,7 @@
   <span class="md-ellipsis">
     
   
-    Data Management
+    Emacs
   
 
     
@@ -515,7 +890,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Data Management
+    Emacs
   
 
           </label>
@@ -528,14 +903,42 @@
   
   
     <li class="md-nav__item">
-      <a href="../downloading-large-datasets/" class="md-nav__link">
+      <a href="../../emacs/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Downloading Massive Datasets (Zenodo)
+    Emacs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../emacs/e1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Emacs
   
 
     
