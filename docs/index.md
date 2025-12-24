@@ -1,17 +1,6 @@
-# Welcome to MkDocs
+# 👋 Welcome to My Digital Notebook
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+Hi! This is a personal collection of tutorials, notes, and workflows that I use in my day-to-day work as a **System Administrator** and **Researcher**.
 
-## Commands
+I created this site primarily to document technical solutions so I don't have to "re-learn" them six months later. If you find them useful for your own research or projects, that's great too!
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.

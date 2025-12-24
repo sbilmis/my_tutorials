@@ -43,15 +43,15 @@ theme:
     text: Roboto
     code: Roboto Mono
 
-# Navigation
-nav:
-  - Home: index.md
-  - Emacs:
-      - e1: emacs/e1.md
-      - e2: emacs/e2.md
-  - Data Management:
-      # Ensure this folder name matches your actual folder (dash vs underscore)
-      - Downloading Massive Datasets (Zenodo): data_management/downloading-large-datasets.md
+# # Navigation
+# nav:
+#   - Home: index.md
+#   - Emacs:
+#       - e1: emacs/e1.md
+#       - e2: emacs/e2.md
+#   - Data Management:
+#       # Ensure this folder name matches your actual folder (dash vs underscore)
+#       - Downloading Massive Datasets (Zenodo): data_management/downloading-large-datasets.md
 
 # Plugins
 plugins:
@@ -62,11 +62,15 @@ plugins:
 
 # Markdown extensions (The "Pro" Suite)
 markdown_extensions:
+  - attr_list
   - admonition
   - footnotes
   - attr_list                   # Allows adding CSS classes to elements
   - md_in_html
   - pymdownx.details            # Better than standard admonitions (collapsible)
+  - pydownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
   - pymdownx.superfences:       # Essential for advanced code blocks
       custom_fences:
         - name: mermaid
