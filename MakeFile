@@ -1,5 +1,9 @@
+.PHONY: deploy
+
 deploy:
-   git add --all
-   git commit -m "$(msg)"
-   git push
-   mkdocs gh-deploy
+	git add --all
+	git commit -m "$(m)"
+	git push
+	mkdocs gh-deploy
+
+
