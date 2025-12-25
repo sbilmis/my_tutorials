@@ -628,17 +628,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#troubleshooting-how-to-resume" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        🆘 Troubleshooting: How to Resume?
-      
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -735,10 +724,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#challenge-1-why-did-my-download-fail-with-403" class="md-nav__link">
+  <a href="#challenge-1-generate-links-without-downloading" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Challenge 1: Why did my download fail with 403?
+        Challenge 1: Generate Links Without Downloading
       
     </span>
   </a>
@@ -746,10 +735,32 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#challenge-2-how-do-i-resume-an-interrupted-download" class="md-nav__link">
+  <a href="#challenge-2-download-only-one-small-file" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Challenge 2: How do I resume an interrupted download?
+        Challenge 2: Download Only One Small File
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#challenge-3-safe-extraction-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Challenge 3: Safe Extraction Test
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#challenge-4-why-did-my-download-fail-with-403" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Challenge 4: Why did my download fail with 403?
       
     </span>
   </a>
@@ -1063,17 +1074,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#troubleshooting-how-to-resume" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        🆘 Troubleshooting: How to Resume?
-      
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -1170,10 +1170,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#challenge-1-why-did-my-download-fail-with-403" class="md-nav__link">
+  <a href="#challenge-1-generate-links-without-downloading" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Challenge 1: Why did my download fail with 403?
+        Challenge 1: Generate Links Without Downloading
       
     </span>
   </a>
@@ -1181,10 +1181,32 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#challenge-2-how-do-i-resume-an-interrupted-download" class="md-nav__link">
+  <a href="#challenge-2-download-only-one-small-file" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Challenge 2: How do I resume an interrupted download?
+        Challenge 2: Download Only One Small File
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#challenge-3-safe-extraction-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Challenge 3: Safe Extraction Test
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#challenge-4-why-did-my-download-fail-with-403" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Challenge 4: Why did my download fail with 403?
       
     </span>
   </a>
@@ -1304,13 +1326,6 @@ will time out, does not support resuming, and provides no checksum verification.
 <li><code>-x 16</code>: <strong>Max Connections.</strong> Use 16 connections per single file.</li>
 <li><code>-U "..."</code>: <strong>User-Agent.</strong> Spoofs a Chrome browser to prevent 403 errors.</li>
 </ul>
-<h3 id="troubleshooting-how-to-resume">🆘 Troubleshooting: How to Resume?<a class="headerlink" href="#troubleshooting-how-to-resume" title="Permanent link">¶</a></h3>
-<p>If your internet cuts out or you accidentally close the terminal:</p>
-<ol>
-<li><strong>Do not panic.</strong> <code>aria2c</code> is designed for this.</li>
-<li>Simply <strong>run the exact same command again</strong>.</li>
-<li>Thanks to the <code>-c</code> flag, it will verify the existing files, skip the completed ones, and resume the partial ones.</li>
-</ol>
 <hr>
 <h2 id="5-method-3-the-sysadmin-way-gnu-parallel-xargs">5. Method 3: The "Sysadmin" Way (GNU Parallel / xargs)<a class="headerlink" href="#5-method-3-the-sysadmin-way-gnu-parallel-xargs" title="Permanent link">¶</a></h2>
 <p>If you are on a restricted server where you cannot install <code>aria2c</code> or Python packages, you can use standard Linux tools (<code>wget</code> and <code>xargs</code>) to achieve parallel downloads.</p>
@@ -1361,16 +1376,36 @@ will time out, does not support resuming, and provides no checksum verification.
 </code></pre></div>
 <hr>
 <h2 id="knowledge-check">🧠 Knowledge Check<a class="headerlink" href="#knowledge-check" title="Permanent link">¶</a></h2>
-<h3 id="challenge-1-why-did-my-download-fail-with-403">Challenge 1: Why did my download fail with 403?<a class="headerlink" href="#challenge-1-why-did-my-download-fail-with-403" title="Permanent link">¶</a></h3>
+<h3 id="challenge-1-generate-links-without-downloading">Challenge 1: Generate Links Without Downloading<a class="headerlink" href="#challenge-1-generate-links-without-downloading" title="Permanent link">¶</a></h3>
+<details class="question">
+<summary>Solution</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>zenodo_get<span class="w"> </span><span class="m">17725827</span><span class="w"> </span>-w<span class="w"> </span>links.txt
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>grep<span class="w"> </span><span class="s2">"communities_infrastructures.tar"</span><span class="w"> </span>links.txt
+</code></pre></div>
+</details>
+<h3 id="challenge-2-download-only-one-small-file">Challenge 2: Download Only One Small File<a class="headerlink" href="#challenge-2-download-only-one-small-file" title="Permanent link">¶</a></h3>
+<details class="question">
+<summary>Solution</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># Option 1: wget</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>wget<span class="w"> </span>-c<span class="w"> </span>&lt;URL&gt;
+</code></pre></div>
+<p><strong>Option 2: aria2c</strong> (Use User-Agent if blocked!)
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>aria2c<span class="w"> </span>-x<span class="w"> </span><span class="m">10</span><span class="w"> </span>-s<span class="w"> </span><span class="m">10</span><span class="w"> </span>-U<span class="w"> </span><span class="s2">"Mozilla/5.0..."</span><span class="w"> </span>&lt;URL&gt;
+</code></pre></div><p></p>
+</details>
+<h3 id="challenge-3-safe-extraction-test">Challenge 3: Safe Extraction Test<a class="headerlink" href="#challenge-3-safe-extraction-test" title="Permanent link">¶</a></h3>
+<details class="success">
+<summary>Best practice</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>mkdir<span class="w"> </span>test_extract
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>tar<span class="w"> </span>-xf<span class="w"> </span>communities_infrastructures.tar<span class="w"> </span>-C<span class="w"> </span>test_extract
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>ls<span class="w"> </span>-l<span class="w"> </span>test_extract
+</code></pre></div>
+</details>
+<h3 id="challenge-4-why-did-my-download-fail-with-403">Challenge 4: Why did my download fail with 403?<a class="headerlink" href="#challenge-4-why-did-my-download-fail-with-403" title="Permanent link">¶</a></h3>
 <details class="question">
 <summary>Answer</summary>
-</details>
 <p>Zenodo likely detected your script as a bot. You must add a <strong>User-Agent</strong> string (<code>-U "Mozilla/..."</code>) to your <code>aria2c</code> command to pretend you are a browser.</p>
-<h3 id="challenge-2-how-do-i-resume-an-interrupted-download">Challenge 2: How do I resume an interrupted download?<a class="headerlink" href="#challenge-2-how-do-i-resume-an-interrupted-download" title="Permanent link">¶</a></h3>
-<details class="question">
-<summary>Answer</summary>
 </details>
-<p>Just run the command again! Ensure the <code>-c</code> (continue) flag is included. <code>aria2c</code> will automatically skip finished files and finish the partial ones.</p>
 
 
 

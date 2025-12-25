@@ -43,6 +43,8 @@ theme:
     text: Roboto
     code: Roboto Mono
 
+copyright: " "
+    
 # # Navigation
 # nav:
 #   - Home: index.md
@@ -103,3 +105,5 @@ extra:
     - icon: fontawesome/brands/linkedin
       link: https://linkedin.com/in/selcuk-bilmis-06781288
       
+
+
