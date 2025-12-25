@@ -112,16 +112,6 @@ aria2c -c -i urls.txt -j 16 -x 16 \
 * `-x 16`: **Max Connections.** Use 16 connections per single file.
 * `-U "..."`: **User-Agent.** Spoofs a Chrome browser to prevent 403 errors.
 
-### 🆘 Troubleshooting: How to Resume?
-
-If your internet cuts out or you accidentally close the terminal:
-
-1. **Do not panic.** `aria2c` is designed for this.
-2. Simply **run the exact same command again**.
-* Thanks to the `-c` flag, it will verify the existing files, skip the completed ones, and resume the partial ones.
-
-
-
 ---
 
 ## 5. Method 3: The "Sysadmin" Way (GNU Parallel / xargs)
@@ -192,13 +182,38 @@ curl -s [https://zenodo.org/api/records/17725827](https://zenodo.org/api/records
 
 ## 🧠 Knowledge Check
 
-### Challenge 1: Why did my download fail with 403?
+### Challenge 1: Generate Links Without Downloading
+
+??? question "Solution"
+    ```bash
+    zenodo_get 17725827 -w links.txt
+    grep "communities_infrastructures.tar" links.txt
+    ```
+
+### Challenge 2: Download Only One Small File
+
+??? question "Solution"
+    ```bash
+    # Option 1: wget
+    wget -c <URL>
+    ```
+
+    **Option 2: aria2c** (Use User-Agent if blocked!)
+    ```bash
+    aria2c -x 10 -s 10 -U "Mozilla/5.0..." <URL>
+    ```
+
+### Challenge 3: Safe Extraction Test
+
+??? success "Best practice"
+    ```bash
+    mkdir test_extract
+    tar -xf communities_infrastructures.tar -C test_extract
+    ls -l test_extract
+    ```
+
+### Challenge 4: Why did my download fail with 403?
 
 ??? question "Answer"
-Zenodo likely detected your script as a bot. You must add a **User-Agent** string (`-U "Mozilla/..."`) to your `aria2c` command to pretend you are a browser.
-
-### Challenge 2: How do I resume an interrupted download?
-
-??? question "Answer"
-Just run the command again! Ensure the `-c` (continue) flag is included. `aria2c` will automatically skip finished files and finish the partial ones.
-
+    Zenodo likely detected your script as a bot. You must add a **User-Agent** string (`-U "Mozilla/..."`) to your `aria2c` command to pretend you are a browser.
+	
