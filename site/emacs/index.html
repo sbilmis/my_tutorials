@@ -21,6 +21,7 @@
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
     
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     
       
@@ -653,17 +654,17 @@
 
                 
 
-<div id="translation-box" style="display:flex; flex-direction:column; align-items:flex-end; gap:5px; position:fixed; bottom:90px; right:20px; z-index:2147483647;">
+<div id="translation-box" style="display:flex; flex-direction:column; align-items:flex-end; gap:5px; position:fixed; bottom:90px; right:20px; z-index:99999999;">
     
-    <button onclick="closeWidget()" aria-label="Close" style="background:#333; color:white; border:none; width:32px; height:32px; border-radius:50%; cursor:pointer; font-weight:bold; font-size:18px; line-height:1; box-shadow:0 2px 8px rgba(0,0,0,0.5); margin-bottom:-12px; z-index:2147483647; display:flex; align-items:center; justify-content:center;">
+    <button onclick="closeWidget()" aria-label="Close" style="background:#333; color:white; border:none; width:30px; height:30px; border-radius:50%; cursor:pointer; font-weight:bold; font-size:16px; line-height:1; box-shadow:0 2px 8px rgba(0,0,0,0.5); margin-bottom:-10px; z-index:1000000; display:flex; align-items:center; justify-content:center;">
         &times;
     </button>
 
-    <div style="background:white; padding:12px; border-radius:8px; box-shadow:0px 4px 20px rgba(0,0,0,0.25); border: 1px solid #e0e0e0; display:flex; align-items:center; gap:10px;">
-        <button onclick="setLanguage('en')" style="background:#f5f5f5; border:1px solid #ccc; padding:10px 14px; border-radius:4px; cursor:pointer; font-size:14px; color:#333; font-weight:bold;">
+    <div style="background:white; padding:12px; border-radius:8px; box-shadow:0px 4px 15px rgba(0,0,0,0.2); border: 1px solid #e0e0e0; display:flex; align-items:center; gap:10px;">
+        <button onclick="setLanguage('en')" style="background:#f5f5f5; border:1px solid #ccc; padding:8px 12px; border-radius:4px; cursor:pointer; font-size:14px; color:#333; font-weight:bold;">
             🇬🇧 English
         </button>
-        <button onclick="setLanguage('tr')" style="background:#f5f5f5; border:1px solid #ccc; padding:10px 14px; border-radius:4px; cursor:pointer; font-size:14px; color:#333; font-weight:bold;">
+        <button onclick="setLanguage('tr')" style="background:#f5f5f5; border:1px solid #ccc; padding:8px 12px; border-radius:4px; cursor:pointer; font-size:14px; color:#333; font-weight:bold;">
             🇹🇷 Türkçe
         </button>
         <div id="google_translate_element" style="display:none;"></div>
@@ -671,12 +672,12 @@
 </div>
 
 <script type="text/javascript">
-  // 1. Initial Visibility Check
+  // A. WIDGET MEMORY
   if (sessionStorage.getItem('translation-widget-closed') === 'true') {
       document.getElementById('translation-box').style.display = 'none';
   }
 
-  // 2. Google Init
+  // B. INIT GOOGLE TRANSLATE
   function googleTranslateElementInit() {
     new google.translate.TranslateElement({
       pageLanguage: 'en',
@@ -686,79 +687,102 @@
     }, 'google_translate_element');
   }
 
-  // 3. Language Switcher
+  // C. SET LANGUAGE
   function setLanguage(lang) {
       if (lang === 'en') {
           document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
           document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=" + window.location.pathname;
-          location.reload();
       } else {
           document.cookie = "googtrans=/en/tr; path=/";
-          location.reload();
       }
+      location.reload();
   }
 
-  // 4. Close Widget
   function closeWidget() {
       document.getElementById('translation-box').style.display = 'none';
       sessionStorage.setItem('translation-widget-closed', 'true');
   }
 
-  // 5. Code Block Protection
+  // D. PREVENT CODE BLOCK TRANSLATION
   document.addEventListener("DOMContentLoaded", function() {
       document.querySelectorAll('pre, code, .highlight').forEach(function(block) {
           block.classList.add('notranslate'); 
       });
   });
 
-  // 6. THE NUCLEAR FIX: MutationObserver to delete the Top Bar
-  // This watches the page for changes and deletes the Google Frame instantly
-  const observer = new MutationObserver(function(mutations) {
-      // Find the Google Top Bar Iframe
-      const iframe = document.querySelector('.goog-te-banner-frame');
-      const frame = document.querySelector('iframe[name="goog-te-banner-frame"]');
+  // E. THE "LAYOUT LOCK" SCRIPT
+  // This actively fights the shift on both HTML and BODY tags
+  function lockLayout() {
+      // 1. Force HTML and BODY to top
+      const root = document.documentElement; // This is the <html> tag
+      const body = document.body;
       
-      if (iframe || frame) {
-          if(iframe) iframe.remove();
-          if(frame) frame.remove();
-          // Force body back to top
-          document.body.style.top = '0px';
-          document.body.style.position = 'static';
-      }
-  });
+      if(root.style.top !== '0px') root.style.setProperty('top', '0px', 'important');
+      if(root.style.marginTop !== '0px') root.style.setProperty('margin-top', '0px', 'important');
+      
+      if(body.style.top !== '0px') body.style.setProperty('top', '0px', 'important');
+      if(body.style.position !== 'static') body.style.setProperty('position', 'static', 'important');
 
-  // Start watching the body for the Google injection
-  observer.observe(document.body, { childList: true, subtree: true });
-  
-  // Also run it once on load just in case
-  window.onload = function() {
-      document.body.style.top = '0px'; 
-  };
+      // 2. Hide the banner frame (Visibility: hidden is often safer than display: none)
+      const iframe = document.querySelector('.goog-te-banner-frame');
+      if (iframe) {
+          iframe.style.setProperty('visibility', 'hidden', 'important');
+          iframe.style.setProperty('display', 'none', 'important');
+          iframe.style.setProperty('height', '0px', 'important');
+      }
+  }
+
+  // Run immediately and rapidly
+  lockLayout();
+  const intervalId = setInterval(lockLayout, 50); // Check every 50ms
+  setTimeout(() => clearInterval(intervalId), 5000); // Stop after 5 seconds
+
 </script>
 
 <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-<style>
-    /* Hide Google Frame */
-    .goog-te-banner-frame, 
-    iframe[name="goog-te-banner-frame"] {
-        display: none !important;
-        visibility: hidden !important;
-        height: 0 !important;
+<style type="text/css">
+    /* 1. Target HTML tag (Critical for mobile) */
+    html {
+        top: 0px !important;
+        margin-top: 0px !important;
+        position: static !important; 
+        min-height: 100% !important;
+        height: auto !important;
     }
-    /* Force Body Position */
+
+    /* 2. Target Body tag */
     body {
         top: 0px !important; 
         position: static !important; 
+        margin-top: 0px !important;
     }
-    /* Hide Tooltips */
-    .goog-tooltip, .goog-tooltip:hover {
+
+    /* 3. Hide the Google iframe */
+    /* We use visibility hidden AND display none to cover all bases */
+    .goog-te-banner-frame,
+    iframe[name="goog-te-banner-frame"] {
+        visibility: hidden !important;
+        display: none !important;
+        height: 0px !important;
+        width: 0px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        border: none !important;
+        pointer-events: none !important;
+    }
+    
+    /* 4. Hide the wrapper div that Google sometimes adds */
+    body > .skiptranslate {
         display: none !important;
     }
-    .goog-text-highlight {
-        background-color: transparent !important;
-        border: none !important; 
-        box-shadow: none !important;
+
+    /* 5. Hide Tooltips */
+    .goog-tooltip { display: none !important; }
+    .goog-tooltip:hover { display: none !important; }
+    .goog-text-highlight { 
+        background-color: transparent !important; 
+        box-shadow: none !important; 
     }
 </style>
 

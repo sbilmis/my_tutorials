@@ -7,3 +7,4 @@ deploy:
 	mkdocs gh-deploy
 
 
+### make deploy m="xxxx"
