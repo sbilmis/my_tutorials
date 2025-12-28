@@ -9,30 +9,30 @@
       
       
       
-        <link rel="canonical" href="https://sbilmis.github.io/my_tutorials/emacs/">
+        <link rel="canonical" href="https://sbilmis.github.io/my_tutorials/containers/updating-docker-apps/">
       
       
-        <link rel="prev" href="../data_management/downloading-large-datasets/">
+        <link rel="prev" href="../..">
       
       
-        <link rel="next" href="e1/">
+        <link rel="next" href="../../data_management/downloading-large-datasets/">
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
     
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     
       
-        <title>Emacs - My Digital Notebook</title>
+        <title>Updating a Docker Application Safely (docker-compose) - My Digital Notebook</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.7e37652d.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -51,14 +51,14 @@
       
     
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
     
     
     
-   <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
     html.glightbox-open { overflow: initial; height: 100%; }
     .gslide-title { margin-top: 0px; user-select: text; }
     .gslide-desc { color: #666; user-select: text; }
@@ -67,7 +67,7 @@
     .gdesc-inner { font-size: 0.75rem; }
     body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
     body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -86,7 +86,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#emacs" class="md-skip">
+        <a href="#updating-a-docker-application-safely-docker-compose" class="md-skip">
           Skip to content
         </a>
       
@@ -100,7 +100,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="My Digital Notebook" class="md-header__button md-logo" aria-label="My Digital Notebook" data-md-component="logo">
+    <a href="../.." title="My Digital Notebook" class="md-header__button md-logo" aria-label="My Digital Notebook" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -120,7 +120,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Emacs
+              Updating a Docker Application Safely (docker-compose)
             
           </span>
         </div>
@@ -236,7 +236,7 @@
   
   
     <li class="md-tabs__item">
-      <a href=".." class="md-tabs__link">
+      <a href="../.." class="md-tabs__link">
         
   
   
@@ -253,11 +253,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../containers/updating-docker-apps/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
           
   
   
@@ -277,7 +279,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../data_management/downloading-large-datasets/" class="md-tabs__link">
+        <a href="../../data_management/downloading-large-datasets/" class="md-tabs__link">
           
   
   
@@ -293,13 +295,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="./" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../emacs/" class="md-tabs__link">
           
   
   
@@ -333,7 +333,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="My Digital Notebook" class="md-nav__button md-logo" aria-label="My Digital Notebook" data-md-component="logo">
+    <a href="../.." title="My Digital Notebook" class="md-nav__button md-logo" aria-label="My Digital Notebook" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -363,7 +363,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -382,26 +382,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
             
   
   
@@ -414,7 +419,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Containers
@@ -425,10 +430,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../containers/updating-docker-apps/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Updating a Docker Application Safely (docker-compose)
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -439,6 +466,113 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-storage-can-be-lost-and-how-to-avoid-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Storage Can Be Lost (and How to Avoid It)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#confirm-that-storage-is-mounted" class="md-nav__link">
+    <span class="md-ellipsis">
+      Confirm That Storage Is Mounted
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-by-step-updating-using-docker-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step-by-Step: Updating Using docker-compose
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step-by-Step: Updating Using docker-compose">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-these-commands-do" class="md-nav__link">
+    <span class="md-ellipsis">
+      What these commands do
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verify-that-the-update-worked" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verify That the Update Worked
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optional-back-up-your-data-extra-safety" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optional: Back Up Your Data (Extra Safety)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clean-up-old-images-reclaim-disk-space" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clean Up Old Images (Reclaim Disk Space)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multiple-docker-apps-on-one-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multiple Docker Apps on One Server
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      TL;DR
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -501,7 +635,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../data_management/downloading-large-datasets/" class="md-nav__link">
+      <a href="../../data_management/downloading-large-datasets/" class="md-nav__link">
         
   
   
@@ -528,31 +662,26 @@
       
   
   
-    
   
   
-  
     
     
     
     
-      
-        
-        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
             
   
   
@@ -565,7 +694,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             Emacs
@@ -576,32 +705,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Emacs
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../emacs/" class="md-nav__link">
         
   
   
@@ -612,35 +719,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#org-mode" class="md-nav__link">
-    <span class="md-ellipsis">
-      ORG-Mode
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -653,7 +731,7 @@
   
   
     <li class="md-nav__item">
-      <a href="e1/" class="md-nav__link">
+      <a href="../../emacs/e1/" class="md-nav__link">
         
   
   
@@ -703,9 +781,87 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#org-mode" class="md-nav__link">
+  <a href="#why-storage-can-be-lost-and-how-to-avoid-it" class="md-nav__link">
     <span class="md-ellipsis">
-      ORG-Mode
+      Why Storage Can Be Lost (and How to Avoid It)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#confirm-that-storage-is-mounted" class="md-nav__link">
+    <span class="md-ellipsis">
+      Confirm That Storage Is Mounted
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-by-step-updating-using-docker-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step-by-Step: Updating Using docker-compose
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step-by-Step: Updating Using docker-compose">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-these-commands-do" class="md-nav__link">
+    <span class="md-ellipsis">
+      What these commands do
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verify-that-the-update-worked" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verify That the Update Worked
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optional-back-up-your-data-extra-safety" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optional: Back Up Your Data (Extra Safety)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clean-up-old-images-reclaim-disk-space" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clean Up Old Images (Reclaim Disk Space)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multiple-docker-apps-on-one-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multiple Docker Apps on One Server
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tldr" class="md-nav__link">
+    <span class="md-ellipsis">
+      TL;DR
     </span>
   </a>
   
@@ -731,8 +887,115 @@
   
 
 
-<h1 id="emacs">Emacs<a class="headerlink" href="#emacs" title="Permanent link">&para;</a></h1>
-<h2 id="org-mode">ORG-Mode<a class="headerlink" href="#org-mode" title="Permanent link">&para;</a></h2>
+<h1 id="updating-a-docker-application-safely-docker-compose">Updating a Docker Application Safely (docker-compose)<a class="headerlink" href="#updating-a-docker-application-safely-docker-compose" title="Permanent link">&para;</a></h1>
+<p>This guide explains how to update a Dockerized application <strong>without losing data</strong>.<br />
+It applies to any container started using <code>docker-compose</code>.</p>
+<hr />
+<h2 id="why-storage-can-be-lost-and-how-to-avoid-it">Why Storage Can Be Lost (and How to Avoid It)<a class="headerlink" href="#why-storage-can-be-lost-and-how-to-avoid-it" title="Permanent link">&para;</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">If your data lives <em>inside</em> a Docker container, updating will erase it</p>
+<p>If you delete a container that contains its own data, that data is permanently removed.<br />
+<strong>Never</strong> store persistent information inside a container's internal filesystem.</p>
+</div>
+<p>To keep data safe, it must be mounted from the host:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">volumes</span><span class="p">:</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./storage:/app/server/storage</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The path on the left (<code>./storage</code>) is on your filesystem.<br />
+Updating Docker containers <strong>will not delete this directory</strong>.</p>
+</div>
+<hr />
+<h2 id="confirm-that-storage-is-mounted">Confirm That Storage Is Mounted<a class="headerlink" href="#confirm-that-storage-is-mounted" title="Permanent link">&para;</a></h2>
+<p>Before updating, verify that your deployment actually mounts storage correctly.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>docker<span class="w"> </span>inspect<span class="w"> </span>&lt;container-name&gt;<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>Source<span class="w"> </span>-A1
+</code></pre></div>
+<p>Expected example:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>&quot;Source&quot;: &quot;/home/user/app/storage&quot;,
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>&quot;Destination&quot;: &quot;/app/server/storage&quot;
+</code></pre></div>
+<p>If <code>"Source"</code> points to a local path, your data is safe.</p>
+<hr />
+<h2 id="step-by-step-updating-using-docker-compose">Step-by-Step: Updating Using docker-compose<a class="headerlink" href="#step-by-step-updating-using-docker-compose" title="Permanent link">&para;</a></h2>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You <strong>must</strong> run these commands in the same folder where <code>docker-compose.yml</code> exists.<br />
+Running docker-compose elsewhere will not affect this service.</p>
+</div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">cd</span><span class="w"> </span>~/app-folder
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>docker-compose<span class="w"> </span>pull
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>docker-compose<span class="w"> </span>down
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>docker-compose<span class="w"> </span>up<span class="w"> </span>-d
+</code></pre></div>
+<h3 id="what-these-commands-do">What these commands do<a class="headerlink" href="#what-these-commands-do" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>docker-compose pull</code></td>
+<td>Downloads the newest version of the image</td>
+</tr>
+<tr>
+<td><code>docker-compose down</code></td>
+<td>Stops &amp; removes the old container (but <strong>not</strong> your mounted data)</td>
+</tr>
+<tr>
+<td><code>docker-compose up -d</code></td>
+<td>Starts a new container using the updated image</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="verify-that-the-update-worked">Verify That the Update Worked<a class="headerlink" href="#verify-that-the-update-worked" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>docker<span class="w"> </span>ps<span class="w"> </span>--format<span class="w"> </span><span class="s2">&quot;table {{.Names}}\t{{.Image}}\t{{.Status}}&quot;</span>
+</code></pre></div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<p>If your app exposes a UI, open it in a browser and check the version label.</p>
+</div>
+<hr />
+<h2 id="optional-back-up-your-data-extra-safety">Optional: Back Up Your Data (Extra Safety)<a class="headerlink" href="#optional-back-up-your-data-extra-safety" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>cp<span class="w"> </span>-a<span class="w"> </span>storage<span class="w"> </span>storage_backup_<span class="k">$(</span>date<span class="w"> </span>+%Y%m%d<span class="k">)</span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>This creates a full copy of your data folder. It is safe but optional before updates.</p>
+</div>
+<hr />
+<h2 id="clean-up-old-images-reclaim-disk-space">Clean Up Old Images (Reclaim Disk Space)<a class="headerlink" href="#clean-up-old-images-reclaim-disk-space" title="Permanent link">&para;</a></h2>
+<p>Once you've confirmed everything is working:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>docker<span class="w"> </span>image<span class="w"> </span>prune<span class="w"> </span>-f
+</code></pre></div>
+<p>Or delete only unused images:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>docker<span class="w"> </span>rmi<span class="w"> </span><span class="k">$(</span>docker<span class="w"> </span>images<span class="w"> </span>-f<span class="w"> </span><span class="s2">&quot;dangling=true&quot;</span><span class="w"> </span>-q<span class="k">)</span>
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do <strong>not</strong> prune images <em>before</em> confirming the application starts and data is intact.</p>
+</div>
+<hr />
+<h2 id="multiple-docker-apps-on-one-server">Multiple Docker Apps on One Server<a class="headerlink" href="#multiple-docker-apps-on-one-server" title="Permanent link">&para;</a></h2>
+<p>Each app lives in its own folder.<br />
+To update one, you must <code>cd</code> into its directory:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>~/anythingllm      → updating here affects AnythingLLM only
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>~/n8n              → updating here affects n8n only
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>~/myapp            → updating here affects only that app
+</code></pre></div>
+<hr />
+<h2 id="tldr">TL;DR<a class="headerlink" href="#tldr" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>cd ~/app-folder
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>docker-compose pull
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>docker-compose down
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>docker-compose up -d
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a># optional after confirming
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>docker image prune -f
+</code></pre></div>
 
 
 
@@ -951,12 +1214,12 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.tracking", "content.code.copy", "search.highlight", "search.share"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.tracking", "content.code.copy", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.50899def.min.js"></script>
+      <script src="../../assets/javascripts/bundle.50899def.min.js"></script>
       
-        <script src="../javascripts/mathjax.js"></script>
+        <script src="../../javascripts/mathjax.js"></script>
       
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
@@ -964,7 +1227,7 @@
       
         <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
       
-        <script src="../javascripts/google-translate.js"></script>
+        <script src="../../javascripts/google-translate.js"></script>
       
     
   <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
