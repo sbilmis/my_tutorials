@@ -89,12 +89,16 @@ markdown_extensions:
       permalink: true
 
 # Extra CSS for MathJax (Required for the math to render)
+extra_css:
+  - stylesheets/spectroscopy.css
+
 extra_javascript:
   - javascripts/mathjax.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
   - https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit
   - javascripts/google-translate.js
+  - javascripts/spectroscopy-embed.js
 
 
   
@@ -105,5 +109,4 @@ extra:
     - icon: fontawesome/brands/linkedin
       link: https://linkedin.com/in/selcuk-bilmis-06781288
       
-
 
