@@ -2,22 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://sbilmis.github.io/my_tutorials/</loc>
-         <lastmod>2025-12-28</lastmod>
+         <lastmod>2026-07-15</lastmod>
     </url>
     <url>
          <loc>https://sbilmis.github.io/my_tutorials/containers/updating-docker-apps/</loc>
-         <lastmod>2025-12-28</lastmod>
+         <lastmod>2026-07-15</lastmod>
     </url>
     <url>
          <loc>https://sbilmis.github.io/my_tutorials/data_management/downloading-large-datasets/</loc>
-         <lastmod>2025-12-28</lastmod>
+         <lastmod>2026-07-15</lastmod>
     </url>
     <url>
          <loc>https://sbilmis.github.io/my_tutorials/emacs/</loc>
-         <lastmod>2025-12-28</lastmod>
+         <lastmod>2026-07-15</lastmod>
     </url>
     <url>
          <loc>https://sbilmis.github.io/my_tutorials/emacs/e1/</loc>
-         <lastmod>2025-12-28</lastmod>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://sbilmis.github.io/my_tutorials/physics/</loc>
+         <lastmod>2026-07-15</lastmod>
+    </url>
+    <url>
+         <loc>https://sbilmis.github.io/my_tutorials/physics/spectroscopy/</loc>
+         <lastmod>2026-07-15</lastmod>
     </url>
 </urlset>

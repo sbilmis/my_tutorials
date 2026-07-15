@@ -94,10 +94,7 @@ extra_css:
 
 extra_javascript:
   - javascripts/mathjax.js
-  - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
-  - https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit
-  - javascripts/google-translate.js
   - javascripts/spectroscopy-embed.js
 
 
